@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	creationComplete="OnCreationComplete();" frameRate="30"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	backgroundColor="#FFFFFF"
+	>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			import GameView.GameView;
+			import Model.LevelModel;
+			import mx.controls.Alert;
+			
+			private function OnCreationComplete() : void
+			{
+				if (Application.application.parameters.hasOwnProperty("LoadLevel"))
+				{
+					var levelToLoad : String = Application.application.parameters.LoadLevel;
+						
+					mGameStatus = new GameStatus();
+					StartLevel(levelToLoad);
+				}
+				else
+				{
+					mLoadingUI = new UIComponent();
+					var mcLoading : DisplayObject = new mLoadingClass();
+					mLoadingUI.addChild(mcLoading);
+					
+					addChild(mLoadingUI);
+					
+					var dni : String = "222";
+										
+					if (Application.application.parameters.hasOwnProperty("ID") && 
+						Application.application.parameters.ID != "")
+					{
+						dni = Application.application.parameters.ID;
+					}
+					
+					mKeepAlive = new KeepAlive(dni);
+					mKeepAlive.Start();
+
+					mGameStatus = new GameStatus();
+					mGameStatus.addEventListener("LoadStatusComplete", OnStatusLoaded);
+					mGameStatus.addEventListener("StatusError", OnStatusError);
+					mGameStatus.LoadStatus(dni);
+				}
+			}
+			
+			//
+			// TODO
+			//
+			private function OnRemoved() : void
+			{
+				if (mKeepAlive != null)
+				{
+					mKeepAlive.Stop();
+					mKeepAlive = null;
+				}
+			}
+			
+			private function OnStatusError(event:Event):void
+			{
+				Alert.show("Se produjo un error de comunicación con el servidor que impidio guardar la información de progreso", "Error de comunicación", Alert.OK);
+			}
+				
+			private function OnStatusLoaded(event:Event):void
+			{
+				removeChild(mLoadingUI);
+				StartTienda();
+			}
+			
+			private function StartTienda() : void
+			{
+				mTienda = new Tienda();
+				mTienda.SetGameStatus(mGameStatus);
+				addChild(mTienda);
+				
+				mTienda.addEventListener("TiendaGameEnd", OnTiendaGameEnd, false, 0, true);
+			}
+			
+			private function OnTiendaGameEnd(event:Event):void
+			{
+				removeChild(mTienda);
+				mTienda = null;
+				
+				StartCurrentLevel();
+			}
+			
+			private function StartCurrentLevel() : void
+			{
+				addChild(mLoadingUI);			
+				var currentLevelName : String = mGameStatus.GetCurrentLevelName();
+				
+				StartLevel(currentLevelName);
+			}
+			
+			private function StartLevel(levelName : String):void
+			{
+				mLevelModel = new LevelModel();
+				mLevelModel.addEventListener("LevelLoaded", OnLevelLoaded, false, 0, true);
+				mLevelModel.addEventListener("LevelError", OnLevelError, false, 0, true);
+				
+				mLevelModel.LoadLevel(levelName);
+			}
+			
+			private function OnLevelLoaded(event:Event) : void
+			{	
+				mGameView = new GameView();
+				mGameView.LevelModel = mLevelModel;
+				mGameView.Chico = mGameStatus.Chico;
+				mGameView.PuntosTienda = mGameStatus.PuntosTienda;
+				
+				mGameView.addEventListener("GameEnd", OnGameEnd, false, 0, true);
+				mGameView.addEventListener("OnVisible", OnGameVisible, false, 0, true);	
+				addChild(mGameView);
+			}
+			
+			private function OnGameVisible(event:Event):void
+			{
+				removeChild(mLoadingUI);
+				
+				mGameView.removeEventListener("OnVisible", OnGameVisible);
+			}
+			
+			private function OnLevelError(event:IOErrorEvent) : void
+			{
+				Alert.show(event.text, "Error cargando un nivel", mx.controls.Alert.OK);
+			}
+			
+			private function OnGameEnd(event:Event):void
+			{
+				mGameStatus.addEventListener("NextLevelComplete", OnNextLevelComplete);
+				mGameStatus.NextLevel(mGameView.GetGameController());
+				
+				removeChild(mGameView);
+				mGameView = null;					
+			}
+			
+			private function OnNextLevelComplete(event:Event):void
+			{
+				mGameStatus.removeEventListener("NextLevelComplete", OnNextLevelComplete);
+				StartTienda();	
+			}
+						
+			
+			private var mLevelModel : LevelModel;
+			private var mGameView : GameView;
+			private var mTienda:  Tienda;
+			private var mGameStatus : GameStatus;
+			
+			private var mKeepAlive : KeepAlive;
+			
+			[Embed(source="Loading.swf")]
+			private var mLoadingClass : Class;
+			private var mLoadingUI : UIComponent;
+		]]>
+	</mx:Script>
+	
+</mx:Application>

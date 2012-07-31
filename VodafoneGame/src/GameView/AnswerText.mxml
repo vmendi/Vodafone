@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TextArea xmlns:mx="http://www.adobe.com/2006/mxml" paddingTop="15" paddingBottom="15" paddingLeft="15" paddingRight="15" useHandCursor="true" editable="false">
+	<mx:Script>
+		<![CDATA[
+		
+		public function SetGUI(mc : DisplayObject) : void
+		{
+			addChild(mc);
+			mc.x = -3;
+			mc.y = -3;
+			width = mc.width-6;
+			height = mc.height-6;
+		}
+		]]>
+	</mx:Script>
+</mx:TextArea>

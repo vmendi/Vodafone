@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Window xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="900" height="300"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	title="Textos"
+	creationComplete="OnCreationComplete();"
+	windowActivate="OnWindowActivate();"
+	windowComplete="OnWindowComplete();"
+	windowMove="OnMove();"
+	xmlns:GUIControls="GUIControls.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.core.IWindow;
+			import mx.core.Application;
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.controls.SWFLoader;
+			
+			import EditorUtils.*;
+			import Model.LevelModel;
+		    	        
+        	public function set LevelModel(val : LevelModel) : void
+        	{ 
+        		mLevelModel = val;
+        		mLevelModel.addEventListener("CurrentLevelChanged", OnLevelChanged);
+        	}
+ 
+        	private function OnWindowComplete() : void
+	        {
+	        	EditorUtils.WindowUtils.OnShow("TextsWindow", nativeWindow);	
+	        }
+	        
+	        private function OnMove() : void
+	        {
+	     		EditorUtils.WindowUtils.OnMove("TextsWindow", nativeWindow);
+	        }
+				
+			private function OnCreationComplete():void
+			{
+			}
+			
+	        private function OnWindowActivate() : void
+	        {
+	        	Application.application.BringAllToFront();
+	        	orderInFrontOf(Application.application as IWindow);
+    	    }
+
+			private function OnLevelChanged(event:Event):void
+			{
+			}
+			
+			[Bindable]
+			private var mLevelModel : LevelModel;			
+		]]>
+	</mx:Script>
+	
+	<GUIControls:TextsDataGrid id="myTextsList" dataProvider="{mLevelModel.Texts}" LevelModel="{mLevelModel}"
+			right="0" left="0" top="0" bottom="0"
+			>
+	</GUIControls:TextsDataGrid>
+</mx:Window>

@@ -1,0 +1,2107 @@
+<Level>
+  <Node>
+    <Name>Inicio</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>FinalCaso=1;DanoPorSegundo=0.2;Vida=50;MultiplicadorVida=5;PAvendido=false;PBvendido=false;VentaCruzada=75 - (PuntosTienda*5);GotoState("INICIO1");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>INICIO1</Name>
+    <Question>INICIO1TXT</Question>
+    <Answers>
+      <Answer>
+        <Text>11</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R11</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>12</Text>
+        <ExecuteCode>ShowFeedback("F12");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R12</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>13</Text>
+        <ExecuteCode>ShowFeedback("F13");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N2</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R13</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>INICIO2</Name>
+    <Question>INICIO2TXT</Question>
+    <Answers>
+      <Answer>
+        <Text>13</Text>
+        <ExecuteCode>ShowFeedback("F13");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N2</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R13</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>14</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N2</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R14</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>15</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N2</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R15</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N1</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>21</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R21</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>22</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT1</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>23</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R23</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N2</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>21</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R21</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>23</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R23</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>24</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R24</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT1</Name>
+    <Question>R22</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F22";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N3</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>31</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R31</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>32</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R32</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>33</Text>
+        <ExecuteCode>ShowFeedback("F33");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R33</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N4</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>31</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R31</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>32</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R32</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>34</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R34</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N5</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>41</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R41</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>42</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R42</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>43</Text>
+        <ExecuteCode>ShowFeedback("F43");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R43</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N6</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>51</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>52</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>53</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT2</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT2</Name>
+    <Question>R53</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F53";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N7</Name>
+    <Question>ObjecionA</Question>
+    <Answers>
+      <Answer>
+        <Text>OA1</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N8</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OA2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OA3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT4</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT3</Name>
+    <Question>ROA2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOA2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT4</Name>
+    <Question>ROA3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOA3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N8</Name>
+    <Question>ObjecionB</Question>
+    <Answers>
+      <Answer>
+        <Text>OB1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N9</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OB2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT5</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OB3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT6</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT5</Name>
+    <Question>ROB2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOB2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT6</Name>
+    <Question>ROB3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOB3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N9</Name>
+    <Question>R51R52</Question>
+    <Answers>
+      <Answer>
+        <Text>61</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N10</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R61</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>62</Text>
+        <ExecuteCode>ShowFeedback("F62");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N10</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R62</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>63</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT7</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT7</Name>
+    <Question>R63</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F63";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N10</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>71</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT8</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>72</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT28");} else {  ShowBackOnomatopeya("mcVentaCruzada");}</ExecuteCode>
+        <ConditionCode>if(!PAvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N11</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>73</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT29");} else {  ShowBackOnomatopeya("mcVentaCruzada");}</ExecuteCode>
+        <ConditionCode>if(!PBvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N18</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>FinalCaso=0;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT8</Name>
+    <Question>R71</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>FinalCaso=2;TxtFeedback="F71";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT9</Name>
+    <Question>R133</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F133";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT28</Name>
+    <Question>R72B</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F72";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT29</Name>
+    <Question>R73B</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F73";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N11</Name>
+    <Question>R72A</Question>
+    <Answers>
+      <Answer>
+        <Text>81</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT30</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>82</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N12</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R82</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>83</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT10</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>FinalCaso=3;HideBackOnomatopeya();</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT10</Name>
+    <Question>R83</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F83";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N12</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>91</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N13</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R91</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>92</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT11</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>93</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N13</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R93</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT11</Name>
+    <Question>R92</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F92";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N13</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>101</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N14</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>102</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N14</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>103</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT12</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT12</Name>
+    <Question>R103</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F103";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N14</Name>
+    <Question>ObjecionE</Question>
+    <Answers>
+      <Answer>
+        <Text>OE1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT13</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OE2</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N15</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OE3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT14</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT13</Name>
+    <Question>ROE1</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOE1";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT14</Name>
+    <Question>ROE3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOE3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N15</Name>
+    <Question>ObjecionF</Question>
+    <Answers>
+      <Answer>
+        <Text>OF1</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N16</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OF2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT15</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OF3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT16</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT15</Name>
+    <Question>ROF2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOF2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT16</Name>
+    <Question>ROF3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOF3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N16</Name>
+    <Question>ObjecionG</Question>
+    <Answers>
+      <Answer>
+        <Text>OG1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N17</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OG2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT17</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OG3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT18</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT17</Name>
+    <Question>ROG2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOG2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT18</Name>
+    <Question>ROG3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOG3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N17</Name>
+    <Question>R101R102</Question>
+    <Answers>
+      <Answer>
+        <Text>111</Text>
+        <ExecuteCode>PAvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R111</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>112</Text>
+        <ExecuteCode>PAvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R112</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>113</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT19</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT19</Name>
+    <Question>R133</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F133";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N18</Name>
+    <Question>R73A</Question>
+    <Answers>
+      <Answer>
+        <Text>84</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N19</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R84</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>85</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N19</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R85</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>86</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT20</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>HideBackOnomatopeya();FinalCaso=3;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT20</Name>
+    <Question>R86</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F86";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N19</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>94</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N20</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R94</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>95</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N20</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R95</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>96</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT21</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT21</Name>
+    <Question>R96</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F96";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N20</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>104</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N21</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>105</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N21</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>106</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT22</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT22</Name>
+    <Question>R106</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F106";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N21</Name>
+    <Question>ObjecionC</Question>
+    <Answers>
+      <Answer>
+        <Text>OC1</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N22</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OC2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT23</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OC3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT24</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT23</Name>
+    <Question>ROC2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOC2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT24</Name>
+    <Question>ROC3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOC3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N22</Name>
+    <Question>ObjecionD</Question>
+    <Answers>
+      <Answer>
+        <Text>OD1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N23</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OD2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT25</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OD3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT26</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT25</Name>
+    <Question>ROD2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOD2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT26</Name>
+    <Question>ROD3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOD3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N23</Name>
+    <Question>R104R105</Question>
+    <Answers>
+      <Answer>
+        <Text>114</Text>
+        <ExecuteCode>PBvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R114</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>115</Text>
+        <ExecuteCode>PBvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>TEKKIE_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R115</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>113</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT27</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT27</Name>
+    <Question>R113</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F113";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT30</Name>
+    <Question>R81</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F81";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>FINALEXITO</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>if (FinalCaso==1){  Vida=0;} else if (FinalCaso==2) {  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==3){  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==4) {  if (PAvendido || PBvendido) {    Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;  }}NivelFinalizado(true,TxtFeedback);</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>FINALFRACASO</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>if (FinalCaso==1){  Vida=0;} else if (FinalCaso==2) {  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==3){  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==4) {  if (PAvendido || PBvendido) {    Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;  }}NivelFinalizado(false,TxtFeedback);</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N10B</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>71</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT31</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>72</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT28");}</ExecuteCode>
+        <ConditionCode>if(!PAvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N11</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>73</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT29");}</ExecuteCode>
+        <ConditionCode>if(!PBvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N18</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>133</Text>
+        <ExecuteCode/>
+        <ConditionCode>if(PAvendido &amp;&amp; PBvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT9</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>VentaCruzada = VentaCruzada+5;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT31</Name>
+    <Question>R71</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>TEKKIE_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>TEKKIE_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>FinalCaso=2;TxtFeedback="F131";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <DaText>
+    <ID>11</ID>
+    <Text>Buenos días, ¿en qué puedo ayudarle?</Text>
+  </DaText>
+  <DaText>
+    <ID>R11</ID>
+    <Text>Buenos días. Me gustaría saber los planes de precios para utilizar el módem USB de Vodafone.</Text>
+  </DaText>
+  <DaText>
+    <ID>12</ID>
+    <Text>Hola, ¿qué desea?</Text>
+  </DaText>
+  <DaText>
+    <ID>R12</ID>
+    <Text>Hola, ¿Me podría dar información sobre el módem USB?</Text>
+  </DaText>
+  <DaText>
+    <ID>13</ID>
+    <Text>¿Qué tal?</Text>
+  </DaText>
+  <DaText>
+    <ID>R13</ID>
+    <Text>¿Cuánto vale el módem USB?</Text>
+  </DaText>
+  <DaText>
+    <ID>14</ID>
+    <Text>Buenos días, ¿desea que le informe de algo en especial?</Text>
+  </DaText>
+  <DaText>
+    <ID>R14</ID>
+    <Text>Quería saber los precios del módem USB</Text>
+  </DaText>
+  <DaText>
+    <ID>15</ID>
+    <Text>Hola, ¿venía a por algo en especial?</Text>
+  </DaText>
+  <DaText>
+    <ID>R15</ID>
+    <Text>Estaba mirando los planes de datos que aparecen aquí en la vitrina.</Text>
+  </DaText>
+  <DaText>
+    <ID>21</ID>
+    <Text>¿Es usted cliente de Vodafone?</Text>
+  </DaText>
+  <DaText>
+    <ID>R21</ID>
+    <Text>Sí, me ha llegado información sobre el módem y la verdad es que estoy bastante interesado en saber la oferta que tienen y las características.</Text>
+  </DaText>
+  <DaText>
+    <ID>22</ID>
+    <Text>Aquí tiene el folleto, si necesita cualquier cosa me lo comenta</Text>
+  </DaText>
+  <DaText>
+    <ID>R22</ID>
+    <Text>Vale. … Bueno prefiero llevármelo a casa para confirmar la información. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>23</ID>
+    <Text>¿Sabe cómo funciona el módem?</Text>
+  </DaText>
+  <DaText>
+    <ID>R23</ID>
+    <Text>Sí, perfectamente. Lo que quería saber son los tipos de tarifas y precios que tienen</Text>
+  </DaText>
+  <DaText>
+    <ID>24</ID>
+    <Text>No se si sabe que existen cuatro planes, dos de datos y otros dos de voz más datos</Text>
+  </DaText>
+  <DaText>
+    <ID>R24</ID>
+    <Text>Sí, si, pero sólo me interesa un plan de datos.</Text>
+  </DaText>
+  <DaText>
+    <ID>31</ID>
+    <Text>Vale, ¿para qué se conecta exactamente a Internet?</Text>
+  </DaText>
+  <DaText>
+    <ID>R31</ID>
+    <Text>Navego sobre todo para estar al tanto de las novedades tecnológicas, la bolsa y también para consultar el estado de los vuelos, el e-mail…</Text>
+  </DaText>
+  <DaText>
+    <ID>32</ID>
+    <Text>¿Lo quiere para conectarse bastante a Internet o para consultas esporádicas?</Text>
+  </DaText>
+  <DaText>
+    <ID>R32</ID>
+    <Text>La verdad es que me interesa conectarme bastante, y sobre todo para consultar el periódico, foros de tecnología y otra información así como el correo electrónico.</Text>
+  </DaText>
+  <DaText>
+    <ID>33</ID>
+    <Text>Existen distintos planes, según el límite y capacidad que necesite.</Text>
+  </DaText>
+  <DaText>
+    <ID>R33</ID>
+    <Text>Bueno, yo necesito algo que no tenga mucho límite, mi intención es conectarme bastante.</Text>
+  </DaText>
+  <DaText>
+    <ID>34</ID>
+    <Text>Vale, entonces le comento con más detalle los Planes de Datos. ¿Qué uso tiene intención de hacer con el módem USB?</Text>
+  </DaText>
+  <DaText>
+    <ID>R34</ID>
+    <Text>Pues conectarme bastante para consultar información en Internet, leer el correo, etc., sobre todo cuando estoy de viaje por trabajo.</Text>
+  </DaText>
+  <DaText>
+    <ID>41</ID>
+    <Text>Por lo que veo tiene intención de utilizar bastante el módem, buscamos una tarifa plana, ¿le parece?</Text>
+  </DaText>
+  <DaText>
+    <ID>R41</ID>
+    <Text>Sí, eso es lo que busco. A ver cuánto cuesta.</Text>
+  </DaText>
+  <DaText>
+    <ID>42</ID>
+    <Text>¿Qué le parece llamadas a fijos nacionales por 10€ más al mes?</Text>
+  </DaText>
+  <DaText>
+    <ID>R42</ID>
+    <Text>No, la verdad es que no me interesa llamar a fijos.</Text>
+  </DaText>
+  <DaText>
+    <ID>43</ID>
+    <Text>Tenemos entonces una tarifa plana por 39€/mes. ¿Le interesaría?</Text>
+  </DaText>
+  <DaText>
+    <ID>R43</ID>
+    <Text>No conozco exactamente qué incluye esa tarifa.</Text>
+  </DaText>
+  <DaText>
+    <ID>51</ID>
+    <Text>Entonces le comento la Tarifa Plana Navega Plus: por 39€/mes podrá conectarse a Internet con tarifa plana, a 3Mbps, Bajando a 128kbps una vez sobrepasado 1GB, sin límite de conexión.</Text>
+  </DaText>
+  <DaText>
+    <ID>52</ID>
+    <Text>Pues entonces Tarifa Plana Navega Plus. Son 39€/mes a 3Mbps. A partir de 1GB la velocidad baja a 128Kbps. ¡Como ve el caudal es muy alto y tiene capacidad de sobra! Pues entonces Tarifa Plana Navega Plus.</Text>
+  </DaText>
+  <DaText>
+    <ID>53</ID>
+    <Text>Pues aquí le dejo el folleto con toda la información de las tarifas para que elija la que más le convenga</Text>
+  </DaText>
+  <DaText>
+    <ID>R53</ID>
+    <Text>Vale, de todas formas el folleto no me va a resolver mis dudas pero bueno…Ya volveré. Gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>R51R52</ID>
+    <Text>Pues la verdad es que me parece una opción muy interesante.</Text>
+  </DaText>
+  <DaText>
+    <ID>61</ID>
+    <Text>Pues si le convence, le voy sacando su módem para que lo vea y se lo podrá llevar en este mismo instante</Text>
+  </DaText>
+  <DaText>
+    <ID>R61</ID>
+    <Text>Vale, me parece perfecto. Muchas gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>62</ID>
+    <Text>Entonces le hago la factura y se lo lleva, ¿no?</Text>
+  </DaText>
+  <DaText>
+    <ID>R62</ID>
+    <Text>Sí, me lo llevo. Gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>63</ID>
+    <Text>Pues aquí tiene entonces su módem</Text>
+  </DaText>
+  <DaText>
+    <ID>R63</ID>
+    <Text>Espere, espere. Me gusta la oferta pero mejor me lo voy a pensar y vuelvo en unos días. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>72</ID>
+    <Text>Le preparo por lo tanto el módem. Por cierto, ¿le interesaría consultar el correo electrónico desde su teléfono móvil? No se si sabe que Vodafone ha sacado recientemente unas Soluciones de Correo para ese tipo de uso</Text>
+  </DaText>
+  <DaText>
+    <ID>R72A</ID>
+    <Text>Sí, las conozco, puede ser cómodo en algunos casos.</Text>
+  </DaText>
+  <DaText>
+    <ID>R72B</ID>
+    <Text>Mire tengo prisa, ya me acerco en otro momento.</Text>
+  </DaText>
+  <DaText>
+    <ID>73</ID>
+    <Text>Antes de que se vaya, ¿conoce el nuevo servicio de Vodafone en tu casa, para realizar llamadas a fijos desde su domicilio?</Text>
+  </DaText>
+  <DaText>
+    <ID>R73A</ID>
+    <Text>Pues no, pero de todas formas no tengo fijo en casa, vivo con un amigo y preferimos no tener fijo.</Text>
+  </DaText>
+  <DaText>
+    <ID>R73B</ID>
+    <Text>Mire tengo prisa, ya volveré en otro momento.</Text>
+  </DaText>
+  <DaText>
+    <ID>81</ID>
+    <Text>Bueno, va a poder conectarse siempre que quiera a una buena velocidad y a buen precio. ¿Le interesaría llevárselo?</Text>
+  </DaText>
+  <DaText>
+    <ID>R81</ID>
+    <Text>Bueno, me lo voy a pensar y a comparar con otras cosas. Muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>82</ID>
+    <Text>Sí, existen varias ofertas. ¿De qué terminal dispone?</Text>
+  </DaText>
+  <DaText>
+    <ID>R82</ID>
+    <Text>Ahora mismo un Iphone, me lo trajo un amigo de Estados Unidos, pero no me ha convencido nada. ¡La batería no me dura nada! Estuve mirando hace poco el catálogo de puntos para cambiarlo, pero no me decidí.</Text>
+  </DaText>
+  <DaText>
+    <ID>83</ID>
+    <Text>Sí que se puede. Se lo recomiendo. ¿Desea entonces contratar el servicio?</Text>
+  </DaText>
+  <DaText>
+    <ID>R83</ID>
+    <Text>¡Puff! Que va, prefiero pensármelo. ¡Hasta luego!</Text>
+  </DaText>
+  <DaText>
+    <ID>84</ID>
+    <Text>Por el fijo no te preocupes, este servicio tiene la posibilidad de ahorrar en las llamadas a fijo desde tu domicilio realizándolas desde tu móvil. ¿Sueles llamar a fijos?</Text>
+  </DaText>
+  <DaText>
+    <ID>R84</ID>
+    <Text>Sí, llamo a bastante a mi familia y además si pudiera a algunos amigos les llamaría a la oficina.</Text>
+  </DaText>
+  <DaText>
+    <ID>85</ID>
+    <Text>¿Pero usted suele realizar llamadas a fijo desde su casa? Este servicio se puede activar sin necesidad de tener un terminal fijo</Text>
+  </DaText>
+  <DaText>
+    <ID>R85</ID>
+    <Text>Sí que llamo a números fijos, a algunos amigos y mi familia prefiero llamarles a su fijo.</Text>
+  </DaText>
+  <DaText>
+    <ID>86</ID>
+    <Text>Este servicio se puede activar sin necesidad de fijo ¿Le interesaría conocer más?</Text>
+  </DaText>
+  <DaText>
+    <ID>R86</ID>
+    <Text>Pues la verdad es que en principio, no. Muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>91</ID>
+    <Text>¿Cuántas cuentas de correo le gustaría consultar?</Text>
+  </DaText>
+  <DaText>
+    <ID>R91</ID>
+    <Text>La de yahoo la consulto bastante para contactar con mis amigos extranjeros, lo que suelo consultar aparte del correo es el Facebook, me comunico con bastantes amigos a través de esto y el chat de gmail... Bueno, la verdad es que gmail lo consulto bastante.</Text>
+  </DaText>
+  <DaText>
+    <ID>92</ID>
+    <Text>Si quiere podemos ver uno más avanzado y le activamos la solución de correo. Le va a venir muy bien, hágame caso.</Text>
+  </DaText>
+  <DaText>
+    <ID>R92</ID>
+    <Text>Bueno ahora mismo no gracias. Hasta luego</Text>
+  </DaText>
+  <DaText>
+    <ID>93</ID>
+    <Text>Ya, el Iphone tiene sus fallos, además la cámara digital es de sólo 2 megapíxel, no soporta flash para ver páginas web... Ahora mismo puede llevarse un buen terminal al hacer un canje por puntos y activar una Solución de Correo. ¿Cuántas cuentas de correo suele consultar?</Text>
+  </DaText>
+  <DaText>
+    <ID>R93</ID>
+    <Text>Normalmente las de yahoo y gmail, lo que suelo consultar aparte del correo es el Facebook, me comunico con bastantes amigos a través de esto.</Text>
+  </DaText>
+  <DaText>
+    <ID>94</ID>
+    <Text>Entonces le podría interesar ahorrar en llamadas a fijos desde su casa. ¿Tiene cobertura en casa?</Text>
+  </DaText>
+  <DaText>
+    <ID>R94</ID>
+    <Text>Sí, utilizo el móvil en casa sin problemas. Por lo que veo entonces se trata de un servicio de telefonía fija basado en tecnología móvil.</Text>
+  </DaText>
+  <DaText>
+    <ID>95</ID>
+    <Text>Le gustaría ahorrar en las llamadas a números fijos que realice desde su casa, ¿verdad? ¿Tiene cobertura en su casa?</Text>
+  </DaText>
+  <DaText>
+    <ID>R95</ID>
+    <Text>Sí tengo, además si pudiera ahorrar cuando las hago desde casa estaría bastante bien. Pero cuénteme, cómo funciona exactamente este servicio.</Text>
+  </DaText>
+  <DaText>
+    <ID>96</ID>
+    <Text>Pues si llama a números fijos le recomiendo este servicio. ¿Se lo voy activando y mientras le explico cómo funciona?</Text>
+  </DaText>
+  <DaText>
+    <ID>R96</ID>
+    <Text>No gracias, mejor ya vuelvo en otro momento. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>101</ID>
+    <Text>Pues le informo: con Vodafone Mail Plus podrá ver su correo electrónico por 6 euros al mes. Podrá enviar y recibir hasta 3MB, que equivalen a unos 2500 emails. Además ahora sale muy bien de precio la Blackberry Pearl, que además incluye Facebook.</Text>
+  </DaText>
+  <DaText>
+    <ID>102</ID>
+    <Text>Yo le ofrecezco la Solución de Correo para otros terminales. Podrá consultar su correo desde cualquier terminal. Podrá enviar hasta 3000 emails por 6 euros al mes, y podrá editar cualquier archivo adjunto que le envíen. Es una solución muy cómoda, ¿verdad?</Text>
+  </DaText>
+  <DaText>
+    <ID>103</ID>
+    <Text>Pues entonces le recomiendo Vodafone Mail Plus. Mire, aquí tiene más información (entrega de folleto</Text>
+  </DaText>
+  <DaText>
+    <ID>R103</ID>
+    <Text>Vale, me informaré sobre esto y si me interesa volveré. Muchas gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>R101R102</ID>
+    <Text>Pues sí parece interesante. ¿Me podría enseñar la Blackberry?</Text>
+  </DaText>
+  <DaText>
+    <ID>104</ID>
+    <Text>Pues con Vodafone en tu casa 1 podrá llamar, siempre que esté en su casa, a cualquier fijo nacional por 1cént/minuto. Este servicio le puede venir bastante bien para mantener contacto con su familia, ¿qué le parece?</Text>
+  </DaText>
+  <DaText>
+    <ID>105</ID>
+    <Text>El servicio Vodafone en tu casa 1 le puede venir muy bien para estar en contacto con sus amigos y familiares y ahorrarse dinero. Por 1cént/minuto podrá llamar a cualquier fijo nacional, pagando simplemente 3€/mes, siempre y cuando esté en su casa</Text>
+  </DaText>
+  <DaText>
+    <ID>106</ID>
+    <Text>Mire, le dejo el folleto con la oferta y ahora vuelvo, ¿vale? Es que tengo que hacer unas gestiones en el almacén</Text>
+  </DaText>
+  <DaText>
+    <ID>R106</ID>
+    <Text>Vale, pues mejor ya le echo un vistazo en casa. Gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>R104R105</ID>
+    <Text>La verdad es que me vendría bastante bien, ya que mi consumo suele ser alto</Text>
+  </DaText>
+  <DaText>
+    <ID>111</ID>
+    <Text>Le gusta la Blackberry, ¿verdad? Se le llevar por un buen precio y este servicio le va a ser muy cómodo, sobre todo cuando no tenga que cargar con su portátil. Bueno, vamos a sacarla así puede echarle un vistazo</Text>
+  </DaText>
+  <DaText>
+    <ID>R111</ID>
+    <Text>Sí la verdad es que sí, la Blackberry me ha gustado mucho. Me lo llevo</Text>
+  </DaText>
+  <DaText>
+    <ID>112</ID>
+    <Text>Pues entonces si lo tiene claro, si le parece podemos ir cerrando la compra</Text>
+  </DaText>
+  <DaText>
+    <ID>R112</ID>
+    <Text>Vale, vamos con ello.</Text>
+  </DaText>
+  <DaText>
+    <ID>113</ID>
+    <Text>Pues si le gusta, tome, aquí tiene</Text>
+  </DaText>
+  <DaText>
+    <ID>R113</ID>
+    <Text>Bueno espere, mejor me lo voy a pensar, voy a comparar con otras cosas y si eso vuelvo.</Text>
+  </DaText>
+  <DaText>
+    <ID>114</ID>
+    <Text>Pues si le parece bien, simplemente tenemos que activarlo en este momento y se lo lleva. Piense que le va a resultar muy cómodo al llevarlo en el móvil y además se va a ahorrar bastante dinero</Text>
+  </DaText>
+  <DaText>
+    <ID>R114</ID>
+    <Text>Sí la verdad es que finalmente creo que me lo voy a llevar</Text>
+  </DaText>
+  <DaText>
+    <ID>115</ID>
+    <Text>Bueno por lo que veo entonces le interesa, ¿verdad? Le va a venir muy bien este estupendo servicio, además puede que incluso a sus compañeros de piso también les convenga, ya me dirá</Text>
+  </DaText>
+  <DaText>
+    <ID>R115</ID>
+    <Text>Se lo comentaré a ver, pero por ahora me lo llevo yo.</Text>
+  </DaText>
+  <DaText>
+    <ID>121</ID>
+    <Text>Vale. Entonces le voy preparando el terminal y activamos el servicio, ¿no?</Text>
+  </DaText>
+  <DaText>
+    <ID>R121</ID>
+    <Text>Sí, perfecto</Text>
+  </DaText>
+  <DaText>
+    <ID>122</ID>
+    <Text>Le convencen el teléfono y la tarifa ¿verdad?, le van a venir muy bien. ¿Se lo voy preparando?</Text>
+  </DaText>
+  <DaText>
+    <ID>R122</ID>
+    <Text>Sí gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>123</ID>
+    <Text>Aquí lo tiene. Gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>R123</ID>
+    <Text>Gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>124</ID>
+    <Text>Bueno, le voy activando el servicio, ¿le parece?</Text>
+  </DaText>
+  <DaText>
+    <ID>R124</ID>
+    <Text>Perfecto</Text>
+  </DaText>
+  <DaText>
+    <ID>125</ID>
+    <Text>Se lo voy a ir activando, ¿vale? Encantado y vuelva cuando quiera</Text>
+  </DaText>
+  <DaText>
+    <ID>R125</ID>
+    <Text>Gracias</Text>
+  </DaText>
+  <DaText>
+    <ID>133</ID>
+    <Text>¿Desea conocer antes de irse el nuevo nokia n95? Tecnología punta en estado puro</Text>
+  </DaText>
+  <DaText>
+    <ID>R133</ID>
+    <Text>No, ya tengo bastante con lo que he comprado. Adiós.</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionA</ID>
+    <Text>Me gustaría saber si el software  es compatible con todos los sistemas operativos</Text>
+  </DaText>
+  <DaText>
+    <ID>OA1</ID>
+    <Text>Se ha mejorado mucho la compatibilidad del módem para Windows y Mac. Con estos dos no va a tener ningún problema</Text>
+  </DaText>
+  <DaText>
+    <ID>OA2</ID>
+    <Text>Ahora mismo no lo sé, pero si tiene Windows sí que le puedo asegurar que le va a ir bien</Text>
+  </DaText>
+  <DaText>
+    <ID>OA3</ID>
+    <Text>Excepto con Windows Vista es compatible con el resto de sistemas operativos. El software está muy mejorado en este aspecto</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionB</ID>
+    <Text>Aún así, el caudal no me parece tan elevado, no sé hasta qué punto podré hacer el uso que normalmente hago</Text>
+  </DaText>
+  <DaText>
+    <ID>OB1</ID>
+    <Text>No se preocupe, la velocidad de conexión es bastante elevada como para consultar el correo, Internet e incluso descargas de mp3. Piense que 3Mbps es casi la velocidad del ADSL residencial</Text>
+  </DaText>
+  <DaText>
+    <ID>OB2</ID>
+    <Text>No sé exactamente que es el caudal, supongo que se referirá al GB de tope hasta el que se puede navegar a 3Mbps. ¡Es un tope muy alto hombre!</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionC</ID>
+    <Text>¿La localización para confirmar que estás en tu casa funciona mediante antenas, no? ¿Es preciso entonces?</Text>
+  </DaText>
+  <DaText>
+    <ID>OC1</ID>
+    <Text>Sí, se le localiza a través de la BTS más cercana cada vez que desea llamar para cerciorar que se encuentra dentro de la zona de funcionamiento de servicio. Es muy preciso. Una locución le avisará de que es correcto</Text>
+  </DaText>
+  <DaText>
+    <ID>OC2</ID>
+    <Text>Cada vez que quiera utilizar el servicio se conectará la BTS con usted y le preguntará si está en su casa o en un radio cercano. Si usted lo confirma, esta tarifa entrará en funcionamiento.</Text>
+  </DaText>
+  <DaText>
+    <ID>OC3</ID>
+    <Text>Sí. Como ve el funcionamiento es muy fácil. Una vez estés en tu casa podrás utilizarlo y así ahorrar en llamadas a fijos. ¡No tienes que preocuparte de nada!</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionD</ID>
+    <Text>No hay número fijo asociado, ¿verdad?</Text>
+  </DaText>
+  <DaText>
+    <ID>OD1</ID>
+    <Text>No, es un servicio pensado para los que no quieren o no necesitan terminal fijo, por lo que no se considera necesario tener un número fijo asociado</Text>
+  </DaText>
+  <DaText>
+    <ID>OD2</ID>
+    <Text>No, para ello necesitaría Vodafone en tu casa Tarifa Plana por 15€ al mes. Si quiere puedo explicarle más</Text>
+  </DaText>
+  <DaText>
+    <ID>OD3</ID>
+    <Text>Ya, es una pena. La verdad es que es un servicio muy bien planteado pero con un número fijo asociado mejoraría mucho, pero aún así sigue suponiendo un ahorro</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionE</ID>
+    <Text>Una pregunta, ¿la Blackberry se sincroniza con el servidor de correo?</Text>
+  </DaText>
+  <DaText>
+    <ID>OE1</ID>
+    <Text>No, no existe ningún tipo de sincronización. Para ello deberá acceder a través de Internet</Text>
+  </DaText>
+  <DaText>
+    <ID>OE2</ID>
+    <Text>Sí, el servidor se actualiza cada cierto tiempo para actualizar todos los cambios que se realicen a través del dispositivo</Text>
+  </DaText>
+  <DaText>
+    <ID>OE3</ID>
+    <Text>Se debe descargar un software especial para sincronizar la blackberry con el servidor a través de un cable</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionF</ID>
+    <Text>¿Es posible tener Hotmail como cuenta de correo configurada?</Text>
+  </DaText>
+  <DaText>
+    <ID>OF1</ID>
+    <Text>No, para poder tener Hotmail hay que pagar una cuota extra</Text>
+  </DaText>
+  <DaText>
+    <ID>OF2</ID>
+    <Text>Sí que puede, como con cualquier otra cuenta</Text>
+  </DaText>
+  <DaText>
+    <ID>OF3</ID>
+    <Text>Es imposible, el servidor de Hotmail está capado para cualquier intento de lectura desde blackberry</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionG</ID>
+    <Text>Me ha comentado que se puede tener un tráfico de emails de hasta 3MB, ¿cómo puede equivaler eso a unos 2500 emails?</Text>
+  </DaText>
+  <DaText>
+    <ID>OG1</ID>
+    <Text>Blackberry comprime muchísimo los correos. Aproximadamente 1MB equivale a 800 emails</Text>
+  </DaText>
+  <DaText>
+    <ID>OG2</ID>
+    <Text>No sé cómo, pero como puede usted ver en las especificaciones pone lo mismo que yo le he dicho</Text>
+  </DaText>
+  <DaText>
+    <ID>OG3</ID>
+    <Text>Equivale a 2500 emails por la compresión que hace blackberry. Además, se trata de emails sólo enviados, por lo que el tráfico puede ser más que suficiente</Text>
+  </DaText>
+  <DaText>
+    <ID>ROA2</ID>
+    <Text>No tengo Windows, por eso lo preguntaba. Voy a informarme de esto mejor en otro sitio. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROA3</ID>
+    <Text>No creo que sea compatible con el resto de sistemas. Voy a informarme de esto mejor en otro sitio. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>OB3</ID>
+    <Text>Le puedo asegurar que podrá descargarse cualquier cosa a esta velocidad. Son 3Mbps, bastante más que la velocidad del ADSL actual, le va a resultar muy útil.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROB2</ID>
+    <Text>No, no, el caudal es la velocidad, que me parece un poco baja. Vamos a hacer una cosa, voy a comparar a ver qué me ofrecen por otro lado y volveré si me convence.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROB3</ID>
+    <Text>Qué va, el ADSL son 3Mbps mínimo. Mire mejor me lo pienso y ya volveré.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROE1</ID>
+    <Text>Pues entonces no me es útil. Mire mejor me lo pienso y ya volveré.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROE3</ID>
+    <Text>Ya, bueno no había escuchado esto realmente. No me convence mucho la verdad. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROF2</ID>
+    <Text>Me parece a mí que no he. Infórmese mejor y vengo en unos días, a ver si mientras pregunto en otro sitio. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROF3</ID>
+    <Text>¿Capado? No es exactamente así. Mire voy a ver si me informan mejor en otro sitio. Adiós.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROG2</ID>
+    <Text>Vale, entonces no lo sabe, ¿no? Es que estaba muy interesado en ese límite. Bueno, me decidiré en unos días y ya volveré. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROG3</ID>
+    <Text>Sólo enviados, ¿o enviados y recibidos?</Text>
+  </DaText>
+  <DaText>
+    <ID>ROC2</ID>
+    <Text>¡Como va a ser así, entonces podría confirmarlo esté donde esté! Mire mejor me lo pienso y ya volveré.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROC3</ID>
+    <Text>Ya pero a mí me interesa saber si no va a fallar la localización. Voy a informarme de esto mejor en otro sitio. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROD2</ID>
+    <Text>FALTA FALTA FALTA</Text>
+  </DaText>
+  <DaText>
+    <ID>ROD3</ID>
+    <Text>FALTA FALTA FALTA</Text>
+  </DaText>
+  <DaText>
+    <ID>INICIO1TXT</ID>
+    <Text>...</Text>
+  </DaText>
+  <DaText>
+    <ID>INICIO2TXT</ID>
+    <Text>...</Text>
+  </DaText>
+  <DaText>
+    <ID>71</ID>
+    <Text>Disfrútelo, hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>R71</ID>
+    <Text>Gracias, hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>F22</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, hay que seguir preguntando para detectar necesidades.</Text>
+  </DaText>
+  <DaText>
+    <ID>F63</ID>
+    <Text>Has intentado un cierre agresivo, sin llegar a confirmar que al cliente le convence. ¡Intenta mejorar esto la próxima vez!</Text>
+  </DaText>
+  <DaText>
+    <ID>F81</ID>
+    <Text>No has terminado de detectar necesidades para impulsar la argumentación. ¡Paso a paso!</Text>
+  </DaText>
+  <DaText>
+    <ID>F83</ID>
+    <Text>Has ido demasiado rápido, sin detectar las necesidades para saber qué beneficios transmitir.</Text>
+  </DaText>
+  <DaText>
+    <ID>F86</ID>
+    <Text>Tienes que incidir más en la detección de necesidades para ofrecer algo que necesite, sino, no va a sentir la necesidad del producto. ¡Inténtalo la próxima vez!</Text>
+  </DaText>
+  <DaText>
+    <ID>F92</ID>
+    <Text>Has intentado un cierre agresivo, sin llegar a confirmar que al cliente le convence. ¡Intenta mejorar esto la próxima vez!</Text>
+  </DaText>
+  <DaText>
+    <ID>F96</ID>
+    <Text>Has intentado un cierre agresivo, sin llegar a confirmar que al cliente le convence. ¡Intenta mejorar esto la próxima vez!</Text>
+  </DaText>
+  <DaText>
+    <ID>F103</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, da sensación de dejadez y desconocimiento por parte del comercial.</Text>
+  </DaText>
+  <DaText>
+    <ID>F106</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, da sensación de dejadez y desconocimiento por parte del comercial</Text>
+  </DaText>
+  <DaText>
+    <ID>F113</ID>
+    <Text>Demasiado agresivo en el cierre. En estos casos es bueno recordarle los beneficios que se lleva y tu disponibilidad como comercial para cualquier cosa que le surja. ¡Tenlo en cuenta la próxima vez!</Text>
+  </DaText>
+  <DaText>
+    <ID>F71</ID>
+    <Text>Enhorabuena, has conseguido vender el producto. Sin embargo, deberías intentar venta cruzada y continuar detectando necesidades.</Text>
+  </DaText>
+  <DaText>
+    <ID>F133</ID>
+    <Text>Ten cuidado, esta tarifa no la necesita el cliente. Si quieres detectar necesidades relacionadas con otros productos, como ya le has vendido otros, hay que preguntar con delicadeza.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOA2</ID>
+    <Text>Pero no le has resuelto su duda. ¡Recuerda que es compatible con Windows y con Mac!</Text>
+  </DaText>
+  <DaText>
+    <ID>FOA3</ID>
+    <Text>¡Recuerda que es compatible con Windows y con Mac!</Text>
+  </DaText>
+  <DaText>
+    <ID>FOB2</ID>
+    <Text>El caudal es la velocidad de conexión. El cliente se ha llevado la sensación de que no va a ser bien atendido.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOB3</ID>
+    <Text>¡No! La velocidad del ADSL residencial es actualmente mayor de 3Mbps. Cuidado con dar información incorrecta.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOE1</ID>
+    <Text>Le has dado información incorrecta. En este caso sí que existe sincronización, ¡has devaluado el producto!</Text>
+  </DaText>
+  <DaText>
+    <ID>FOE3</ID>
+    <Text>No existe ningún software para esto. Has generado desconfianza en un cliente que sabe de lo que habla y está bastante informado. ¡En estos casos hay que hilar fino!</Text>
+  </DaText>
+  <DaText>
+    <ID>FOF2</ID>
+    <Text>Para tener activada la cuenta de Hotmail hay que pagar una tarifa extra. Recuérdalo.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOF3</ID>
+    <Text>No informes mal a este tipo de clientes, genera mucha desconfianza.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOG2</ID>
+    <Text>Sé más proactivo, no intentes eludir objeciones sin ofrecerte a resolverlas. Muestras dejadez y falta de conocimiento.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOG3</ID>
+    <Text>Son enviados y recibidos. Recuérdalo, y cuidado con la información que le das al cliente.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOC2</ID>
+    <Text>Te has despistado. Piénsalo, ¿cómo va a confirmar el cliente si está o no en cobertura? Ten cuidado la próxima vez.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOC3</ID>
+    <Text>No le has explicado el funcionamiento, el cliente sigue con su duda y desconfía de que tú la sepas. Intenta enfocarte a resolver sus dudas transmitiendo beneficios.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOD2</ID>
+    <Text>No entres en un producto que no necesita, puedes llegar a marearle que es lo que ha pasado en este caso.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOD3</ID>
+    <Text>No resaltes lo negativo del producto, vete siempre a los beneficios, en este caso el ahorro en llamadas a fijos que le va a suponer.</Text>
+  </DaText>
+  <DaText>
+    <ID>F72</ID>
+    <Text>¿Qué ha pasado si has vendido? Para poder hacer venta cruzada es importante que el cliente quede satisfecho y convencido de los beneficios que se lleva.</Text>
+  </DaText>
+  <DaText>
+    <ID>F73</ID>
+    <Text>¿Qué ha pasado si has vendido? Para poder hacer venta cruzada es importante que el cliente quede satisfecho y convencido de los beneficios que se lleva.</Text>
+  </DaText>
+  <DaText>
+    <ID>F131</ID>
+    <Text>Enhorabuena, has conseguido vender el producto. Sin embargo, podrías haber seguido detectando necesidades. Recuerda, hay que intentar la venta cruzada.</Text>
+  </DaText>
+  <DaText>
+    <ID>F53</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, da sensación de dejadez y desconocimiento por parte del comercial</Text>
+  </DaText>
+  <DaText>
+    <ID>F12</ID>
+    <Text>Intenta ser más proactivo en el contacto. ¡Ofrece tu ayuda y disponibilidad!</Text>
+  </DaText>
+  <DaText>
+    <ID>F13</ID>
+    <Text>Intenta ser más proactivo en el contacto. ¡Ofrece tu ayuda y disponibilidad!</Text>
+  </DaText>
+  <DaText>
+    <ID>F33</ID>
+    <Text>Como habrás podido comprobar, el se trata de un perfil de cliente muy técnico, la información que le acabas de dar no le aporta valor. Hay que intentar adaptarse a cada perfil de cliente.</Text>
+  </DaText>
+  <DaText>
+    <ID>F43</ID>
+    <Text>No le has comentado los beneficios que tendría ni has terminado de confirmar sus necesidades. ¡Hay que tener paciencia!</Text>
+  </DaText>
+  <DaText>
+    <ID>F62</ID>
+    <Text>Has vendido pero el cliente no ha quedado convencido del todo. Has sido demasiado directo en el cierre, intenta resaltarle los beneficios que se lleva para que no piense que les has “colado” el producto.</Text>
+  </DaText>
+  <DaText>
+    <ID>F123</ID>
+    <Text>Has vendido pero el cliente no ha quedado convencido del todo. Has sido demasiado directo en el cierre, intenta resaltarle los beneficios que se lleva para que no piense que les has “colado” el producto.</Text>
+  </DaText>
+  <AssetPath>Assets/Tekkie</AssetPath>
+</Level>

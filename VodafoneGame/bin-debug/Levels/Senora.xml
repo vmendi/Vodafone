@@ -1,0 +1,799 @@
+<Level>
+  <Node>
+    <Name>Inicio</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>DanoPorSegundo=0.2;Vida=50;MultiplicadorVida=11;GotoState("INICIO1");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>INICIO1</Name>
+    <Question>INICIOTXT</Question>
+    <Answers>
+      <Answer>
+        <Text>11</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R11</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>12</Text>
+        <ExecuteCode>ShowFeedback("F12");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R12</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>13</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT9</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N1</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>21</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N2</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R21</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>22</Text>
+        <ExecuteCode>ShowFeedback("F22");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R22</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>23</Text>
+        <ExecuteCode>ShowFeedback("F23");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R23</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N2</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>31</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R31</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>32</Text>
+        <ExecuteCode>ShowFeedback("F32");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R32</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>33</Text>
+        <ExecuteCode>ShowFeedback("F33");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R33</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N3</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>32</Text>
+        <ExecuteCode>ShowFeedback("F32");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R32</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>33</Text>
+        <ExecuteCode>ShowFeedback("F33");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R33</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>34</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT1</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT1</Name>
+    <Question>R34</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F34";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N4</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>41</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R41</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>42</Text>
+        <ExecuteCode>ShowFeedback("F42");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R42</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>43</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R43</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N5</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>51</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R51</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>52</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R52</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>53</Text>
+        <ExecuteCode>ShowFeedback("F53");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>SENORA_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R53</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N6</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>61</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");ShowFeedback("F61");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>62</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>63</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N7</Name>
+    <Question>ObjecionA</Question>
+    <Answers>
+      <Answer>
+        <Text>OA1</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N8</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OA2</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT2</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OA3</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT2</Name>
+    <Question>ROA2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOA2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT3</Name>
+    <Question>ROA3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_negativa_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_negativa.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOA3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N8</Name>
+    <Question>ObjecionB</Question>
+    <Answers>
+      <Answer>
+        <Text>OB1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N9</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OB2</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT4</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OB3</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT5</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_pensativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_pensativo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT4</Name>
+    <Question>ROB2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOB2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT5</Name>
+    <Question>ROB3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOB3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N9</Name>
+    <Question>R61R62R63</Question>
+    <Answers>
+      <Answer>
+        <Text>71</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT6</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>72</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT7</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>73</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT8</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_positiva_final_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT6</Name>
+    <Question>R71</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F71";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT7</Name>
+    <Question>R72</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F72";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT8</Name>
+    <Question>R73</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F73";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT9</Name>
+    <Question>R13</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>SENORA_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>SENORA_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F13";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>FINALEXITO</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>NivelFinalizado(true,TxtFeedback);</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>FINALFRACASO</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>NivelFinalizado(false,TxtFeedback);</OnEnterCode>
+  </Node>
+  <DaText>
+    <ID>11</ID>
+    <Text>Hola buenos días, ¿en qué puedo ayudarle?</Text>
+  </DaText>
+  <DaText>
+    <ID>R11</ID>
+    <Text>Hola, me han comentado que Vodafone tiene un servicio de telefonía como el de Telefónica, ¿me lo podría explicar?</Text>
+  </DaText>
+  <DaText>
+    <ID>12</ID>
+    <Text>Hola, buenos días</Text>
+  </DaText>
+  <DaText>
+    <ID>R12</ID>
+    <Text>Hola, ¿me puede decir como funciona el Vodafone fijo ese?</Text>
+  </DaText>
+  <DaText>
+    <ID>13</ID>
+    <Text>Espere un segundo por favor, que tengo que terminar de preparar un pedido en el almacén. Ahora mismo vuelvo</Text>
+  </DaText>
+  <DaText>
+    <ID>R13</ID>
+    <Text>Bueno, hasta luego...</Text>
+  </DaText>
+  <DaText>
+    <ID>21</ID>
+    <Text>Sí, se llama Vodafone en tu casa. Antes de nada, ¿es usted cliente de Vodafone?</Text>
+  </DaText>
+  <DaText>
+    <ID>R21</ID>
+    <Text>No, no tengo móvil. De todas formas no estoy interesada en un móvil, sólo en el fijo.</Text>
+  </DaText>
+  <DaText>
+    <ID>22</ID>
+    <Text>Por lo que veo está interesada en Vodafone en tu casa. Léase por favor este folleto y ahora le resuelvo sus dudas.</Text>
+  </DaText>
+  <DaText>
+    <ID>R22</ID>
+    <Text>Ya pero si es que el problema es que no me entero de lo que leo, no entiendo los folletos.</Text>
+  </DaText>
+  <DaText>
+    <ID>23</ID>
+    <Text>Sí. Se trata de un servicio para llamar a números fijos desde casa. ¿En cual está interesada, Vodafone en tu casa 1 o Vodafone en tu casa Tarifa Plana?</Text>
+  </DaText>
+  <DaText>
+    <ID>R23</ID>
+    <Text>¿Pero qué dice? Si no sé de qué me está hablando.</Text>
+  </DaText>
+  <DaText>
+    <ID>31</ID>
+    <Text>¿Tiene cobertura en casa? Es decir, ¿se puede hablar desde el móvil en su casa sin problemas?</Text>
+  </DaText>
+  <DaText>
+    <ID>R31</ID>
+    <Text>Sí creo que sí, porque mis hijos son de Vodafone y hablan en casa si ningún problema</Text>
+  </DaText>
+  <DaText>
+    <ID>32</ID>
+    <Text>Vale, vale. Entonces resumiendo, usted está interesada en dar de alta una línea móvil y así activar Vodafone en tu casa, ¿no?</Text>
+  </DaText>
+  <DaText>
+    <ID>R32</ID>
+    <Text>No, no, no he dicho nada de móvil, lo que quiero es sólo el fijo.</Text>
+  </DaText>
+  <DaText>
+    <ID>33</ID>
+    <Text>Bueno, le explico. Vodafone en tu casa es un servicio para llamar a fijos desde su domicilio. Podrá activar dos tipos de servicios, uno para llamar desde un terminal fijo y otro desde el teléfono móvil.</Text>
+  </DaText>
+  <DaText>
+    <ID>R33</ID>
+    <Text>Bueno, no me he enterado muy bien, pero a mí lo que me gustaría es una tarifa plana, como lo que tengo ahora con Telefónica.</Text>
+  </DaText>
+  <DaText>
+    <ID>34</ID>
+    <Text>Pues tampoco es tan difícil este servicio, señora. Ahora le explico.</Text>
+  </DaText>
+  <DaText>
+    <ID>R34</ID>
+    <Text>Mire mejor voy a probar en otra tienda, que ya veo que está usted de mal humor.</Text>
+  </DaText>
+  <DaText>
+    <ID>41</ID>
+    <Text>A usted le vendría bien entonces el servicio Vodafone en tu casa Tarifa Plana, con llamadas a fijo desde su casa, con un terminal fijo, ¿verdad?</Text>
+  </DaText>
+  <DaText>
+    <ID>R41</ID>
+    <Text>Sí, eso es lo que quería</Text>
+  </DaText>
+  <DaText>
+    <ID>42</ID>
+    <Text>Bueno, entonces vayamos haciendo las gestiones para la activación de la tarifa plana.</Text>
+  </DaText>
+  <DaText>
+    <ID>R42</ID>
+    <Text>Espere, me gustaría saber un poco más de cómo funciona</Text>
+  </DaText>
+  <DaText>
+    <ID>43</ID>
+    <Text>Entonces le puede venir bien el servicio Vodafone en tu casa Tarifa Plana. ¿Sabe en qué consiste?</Text>
+  </DaText>
+  <DaText>
+    <ID>R43</ID>
+    <Text>No, explíquemelo por favor.</Text>
+  </DaText>
+  <DaText>
+    <ID>51</ID>
+    <Text>Le comento, por 15€/mes tiene la posibilidad de llamar a cualquier fijo nacional siempre que esté en su domicilio.  Ahora lo que faltaría es que usted me diga si quiere seguir utilizando el teléfono que tiene o le gustaría cambiar o tener un inalámbrico</Text>
+  </DaText>
+  <DaText>
+    <ID>R51</ID>
+    <Text>Pues en principio me quedo con el que tengo, que estoy familiarizada. Además tiene los números muy grandes, no como los de ahora, ¡que no soy capaz de distinguir el 0 con el 8!</Text>
+  </DaText>
+  <DaText>
+    <ID>52</ID>
+    <Text>Es una tarifa plana para llamar a fijos por 15€/mes. ¿Le interesa? ¿Le gustaría comprar un terminal o se quedaría con el que tiene actualmente?</Text>
+  </DaText>
+  <DaText>
+    <ID>R52</ID>
+    <Text>Pues en principio me quedo con el que tengo, que estoy familiarizada. Además tiene los números muy grandes, no como los de ahora, ¡que no soy capaz de distinguir el 0 del 8!</Text>
+  </DaText>
+  <DaText>
+    <ID>53</ID>
+    <Text>Pues no tiene mucha más ciencia señora, es una tarifa plana para llamar a fijos. Lo único que necesito saber es si quiere un teléfono nuevo o si quiere utilizar el que tiene.</Text>
+  </DaText>
+  <DaText>
+    <ID>R53</ID>
+    <Text>Si pudiera quedarme con el que tengo, es que son tantos años…</Text>
+  </DaText>
+  <DaText>
+    <ID>61</ID>
+    <Text>Llévese la caja de voz que es gratuita. Usted podrá conectar el teléfono fijo a ella.</Text>
+  </DaText>
+  <DaText>
+    <ID>62</ID>
+    <Text>Pues con Vodafone podrá seguir utilizando su fijo, gracias a la caja de voz. ¿Qué le parece?</Text>
+  </DaText>
+  <DaText>
+    <ID>63</ID>
+    <Text>Bueno, entonces le explico: puede optar por una caja de voz donde se conectará su teléfono fijo y funcionará como hasta ahora, no tendrá que preocuparse de nada.</Text>
+  </DaText>
+  <DaText>
+    <ID>R61R62R63</ID>
+    <Text>Pues la verdad es que me voy a llevar esto</Text>
+  </DaText>
+  <DaText>
+    <ID>71</ID>
+    <Text>Bueno entonces le preparo la caja de voz. Si me pudiera decir sus datos comenzamos el proceso de cambio, ¿le parece bien?</Text>
+  </DaText>
+  <DaText>
+    <ID>R71</ID>
+    <Text>Vale, le comento entonces...</Text>
+  </DaText>
+  <DaText>
+    <ID>72</ID>
+    <Text>Vale. ¿Ha pensado en la posibilidad de tenerlo mejor en un móvil y así poder estar localizable?</Text>
+  </DaText>
+  <DaText>
+    <ID>R72</ID>
+    <Text>No, no. Prefiero fijo, yo los móviles no los entiendo. Hágame lo que habíamos hablado y ya está.</Text>
+  </DaText>
+  <DaText>
+    <ID>73</ID>
+    <Text>Le preparo la caja de voz si me dice sus datos para el cambio y en tan sólo siete días estará disfrutando de este estupendo servicio.</Text>
+  </DaText>
+  <DaText>
+    <ID>R73</ID>
+    <Text>Vale, le voy diciendo…</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionA</ID>
+    <Text>¿Pero cómo se instala la caja esa entonces?</Text>
+  </DaText>
+  <DaText>
+    <ID>OA1</ID>
+    <Text>Es muy sencillo, yo se la dejaré preparada para colocarla en cualquier zona de su casa y conectar el teléfono fijo a esta ranura</Text>
+  </DaText>
+  <DaText>
+    <ID>OA2</ID>
+    <Text>Mire, en las instrucciones de dicha caja aparecen las distintas configuraciones. No tiene mucha ciencia</Text>
+  </DaText>
+  <DaText>
+    <ID>ROA2</ID>
+    <Text>Ya pero estamos en lo de siempre, las instrucciones no las entiendo muy bien. Bueno, me lo pensaré entonces.</Text>
+  </DaText>
+  <DaText>
+    <ID>OA3</ID>
+    <Text>Simplemente lo conecta a la roseta principal y el teléfono lo deja conectado como hasta ahora</Text>
+  </DaText>
+  <DaText>
+    <ID>ROA3</ID>
+    <Text>Mis hijos me advirtieron que lo de la roseta no funciona bien. No sé, mejor lo hablo de nuevo con ellos y ya volveré</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionB</ID>
+    <Text>De todas formas ha dicho 15 euros, no es tan barato eso.</Text>
+  </DaText>
+  <DaText>
+    <ID>OB1</ID>
+    <Text>Yo le recomiendo este teléfono aún con este precio, ya que es económico teniendo en cuenta lo que puede hacer con él.</Text>
+  </DaText>
+  <DaText>
+    <ID>OB2</ID>
+    <Text>No es tan caro si lo comparamos con otros terminales con prestaciones parecidas, yo se lo recomiendo. Es un teléfono que le gusta y le va a sacar rendimiento.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROB2</ID>
+    <Text>Bueno sigo sin verlo tan barato, además ahora cambiarme para ahorrarme cuatro perras no me convence. Muchas gracias de todas formas</Text>
+  </DaText>
+  <DaText>
+    <ID>OB3</ID>
+    <Text>Bueno el precio es algo elevado, pero en comparación con el resto de Operadores que ofrecen servicios similares es algo más barato.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROB3</ID>
+    <Text>Puede ser, pero para ahorrarme tan poco no me merece la pena, gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>INICIOTXT</ID>
+    <Text>...</Text>
+  </DaText>
+  <DaText>
+    <ID>F13</ID>
+    <Text>No dejes de atender al cliente, no le das la importancia que tiene y la sensación de no atención aumenta muchísimo.</Text>
+  </DaText>
+  <DaText>
+    <ID>F34</ID>
+    <Text>¡Te has enfrentado al cliente! Comprende que este perfil no se maneja bien con la tecnología, tienes que ser asertivo y ponerte en su lugar.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOA2</ID>
+    <Text>¡Muy mal! No le has resuelto su duda y la has encaminado a un manual, cuando este perfil no entiende los manuales de productos tecnológicos.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOA3</ID>
+    <Text>¡Esta solución ya no vale! Dejas al cliente confundido.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOB2</ID>
+    <Text>Apóyate en beneficios y demuéstrale que le va a salir más barato, dale cifras. Sino, es muy complicado obtener credibilidad.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOB3</ID>
+    <Text>No le comentes que es un precio algo elevado, le produces una reacción negativa y es muy difícil explicar beneficios después de esto.</Text>
+  </DaText>
+  <DaText>
+    <ID>F71</ID>
+    <Text>¡Muy bien! Has vendido el producto y el cliente está contento.</Text>
+  </DaText>
+  <DaText>
+    <ID>F72</ID>
+    <Text>Has vendido pero el cliente no ha quedado convencido del todo. Le has propuesto otro producto cuando había entendido otro y además era el que necesitaba. Cuidado con estas situaciones, el cliente no se va satisfecho con el asesoramiento recibido.</Text>
+  </DaText>
+  <DaText>
+    <ID>F73</ID>
+    <Text>¡Muy bien! Has vendido el producto y el cliente está contento.</Text>
+  </DaText>
+  <DaText>
+    <ID>F12</ID>
+    <Text>Intenta ser más proactivo en el contacto. ¡Ofrece tu ayuda y disponibilidad!</Text>
+  </DaText>
+  <DaText>
+    <ID>F22</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, hay que seguir preguntando para detectar necesidades.</Text>
+  </DaText>
+  <DaText>
+    <ID>F23</ID>
+    <Text>¡Cuidado con el vocabulario! Con este tipo de clientes es mejor ir más despacio y detectar bien las necesidades para argumentar un producto en concreto.</Text>
+  </DaText>
+  <DaText>
+    <ID>F32</ID>
+    <Text>¡Cuidado con el vocabulario! Con este tipo de clientes es mejor ir más despacio y detectar bien las necesidades para argumentar un producto en concreto.</Text>
+  </DaText>
+  <DaText>
+    <ID>F33</ID>
+    <Text>Recuerda que es muy importante ser asertivo y en este caso este tipo de clientes no tienen apenas conocimiento sobre cómo funcionan los productos de telecomunicaciones.</Text>
+  </DaText>
+  <DaText>
+    <ID>F42</ID>
+    <Text>Intentar ser un poco menos directo, explica un poco más el producto y sobre todo las ventajas y beneficios.</Text>
+  </DaText>
+  <DaText>
+    <ID>F53</ID>
+    <Text>Intentar ser un poco menos directo, explica un poco más el producto y sobre todo las ventajas y beneficios.</Text>
+  </DaText>
+  <DaText>
+    <ID>F61</ID>
+    <Text>¡Cuidado con el vocabulario! No introduzcas estos elementos tan bruscamente. Además, para que entienda el servicio no tiene por qué ser necesario explicar todos los detalles.</Text>
+  </DaText>
+  <AssetPath>Assets/Senora</AssetPath>
+</Level>

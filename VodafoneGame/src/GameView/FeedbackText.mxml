@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="14" 
+	borderStyle="none" mouseEnabled="false"
+	paddingTop="30" paddingBottom="15" paddingLeft="15" paddingRight="15"
+	creationComplete="OnCreationComplete()"
+	focusEnabled="false" focusThickness="0" focusRect="false"
+	>
+
+	<mx:Script>	
+		<![CDATA[
+		
+		import mx.core.UIComponent;
+		import Utils.GenericEvent;		
+		import Controller.GameController;
+		import flash.utils.getDefinitionByName;
+		
+		public function SetGameController(gc : GameController):void
+		{
+			mGameController = gc;
+			mGameController.TheCharacter.addEventListener("ShowFeedback", OnShowFeedback, false, 0, true);			
+		}
+		
+		public function CreateGUI():void
+		{
+			mMensaje = new (getDefinitionByName("mcFeedbacks") as Class);
+			var uiComp : UIComponent = new UIComponent();
+			uiComp.addChild(mMensaje);
+			addChild(uiComp);
+			uiComp.width = mMensaje.width;
+			uiComp.height = mMensaje.height + 20;
+			width=uiComp.width;
+			height=uiComp.height;
+		}		
+		
+		public function OnCreationComplete() : void
+		{					
+		}
+		
+		private function OnShowFeedback(event:GenericEvent):void
+		{
+			parent.setChildIndex(this, parent.numChildren-1);
+			mMensaje.mcHolder.ctFeedback.text = mGameController.GetLevelModel().FindTextByID(event.Data as String);
+			mMensaje.gotoAndPlay("show"); 
+		}
+		
+		private var mMensaje : MovieClip;
+		private var mGameController : GameController;
+		]]>
+		
+	</mx:Script>
+</mx:Canvas>

@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="730" height="553" 
+	creationComplete="OnCreationComplete();"
+	xmlns:GameView="GameView.*"
+	horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	>
+
+	<mx:Script>
+	<![CDATA[
+		import Utils.GenericEvent;
+		import Controller.ShowProductsEvent;
+		import Utils.RandUtils;
+		import mx.events.NumericStepperEvent;
+		import mx.core.UIComponent;
+		import Utils.MovieClipListener;
+		import Controller.GameController;
+		import Model.LevelModel;
+		
+		import flash.display.MovieClip;
+		import flash.events.MouseEvent;
+		import flash.utils.*;
+		
+		import mx.controls.Button;
+		import mx.controls.SWFLoader;
+		import mx.core.MovieClipLoaderAsset;
+				
+        public function set LevelModel(val : LevelModel):void { mLevelModel = val; }
+        public function set Chico(val : Boolean):void { mChico = val; }
+		public function set PuntosTienda(val : int):void { mPuntosTienda = val; }    	            
+        
+        public function GetGameController() : GameController { return mGameController; }
+        public function GetGameArea() : UIComponent { return mGameArea; }
+		public function GetCurrCharacter() : MovieClip { return mCurrCharacter; }
+		public function GetMarco() : UIComponent { return mMarco; }
+	
+	
+		
+		private function OnCreationComplete() : void
+		{	
+			this.visible = false;
+
+			// Carga de todo el interface GUI	
+			mGUI = new SWFLoader();
+			
+			// Para que las clases de dentro se puedan pedir directamente con getDefinitionByName, las traemos a este appDomain
+			mGUI.loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain);
+			
+			mGUI.addEventListener("complete", OnGUILoadComplete, false, 0, true);
+			mGUI.addEventListener("ioError", OnLoadError, false, 0, true);
+			mGUI.load("GUI/GUI.swf");
+			
+			if (parent.getChildByName("myDebugWindow") != null)
+				mDebug = parent.getChildByName("myDebugWindow") as DebugWindow;
+		}
+
+		
+		public function StopGame() : void
+		{	
+			myClientQuestion.Stop();
+				
+			if (mAudioManager != null)
+			{
+				mAudioManager.StopMusic();
+				mAudioManager = null;
+			}
+		}
+		
+		public function GetChicoCliente() : Boolean
+		{
+			if (mLevelModel.AssetPath.indexOf("Chica") != -1 ||
+				mLevelModel.AssetPath.indexOf("Senora") != -1)
+				return false;
+			
+			return true;
+		}				
+		
+		private function OnGUILoadComplete(event : Event) : void
+		{
+			mGameArea = new UIComponent();
+			mGameArea.width=730;
+			mGameArea.height=545;
+			
+			// Creamos y nos quedamos con las clases que contiene el GUI cargado
+			mErrorMovieClip = new (getDefinitionByName("mcError") as Class);
+			
+			for (var c:int = 1; c < 9; c++)
+				mMensajePlayerClasses.push(getDefinitionByName("mcMensajePlayer"+c) as Class);
+	
+			// Como ya tenemos el GUI, nuestros controles hijos pueden crearse
+			myClientQuestion.CreateGUI();
+			myGreenScore.CreateGUI(mLevelModel.CurrentLevel);
+			myScroller.CreateGUI();
+			myFeedback.CreateGUI();
+			
+			myGreenScore.Chico = mChico;
+			myClientQuestion.ChicoCliente = GetChicoCliente();
+			
+			// La mascara, sólo si no estamos en debug
+			if (mDebug == null)
+			{
+				var daMask : MovieClip = new (getDefinitionByName("mcMascara") as Class);
+				this.mask = daMask;
+			}
+
+			// Area de juego añadida debajo del todo
+			addChildAt(mGameArea, 0);
+			mGameArea.addChildAt(mLevelModel.Background.DaMovieClip.content, 0);
+			
+			var marco : MovieClip = new (getDefinitionByName("mcMarco") as Class);
+			mMarco = new UIComponent();
+			mMarco.addChild(marco);
+			addChild(mMarco);
+			
+			mMarco.mouseEnabled = false;
+			marco.mouseEnabled = false;
+			
+			setChildIndex(myClientQuestion, getChildIndex(mMarco));
+			setChildIndex(myFeedback, getChildIndex(mMarco));
+						
+			// Ponemos el scroller por encima de todo
+			setChildIndex(myScroller, getChildIndex(mMarco));
+			
+			// Boton pausa
+			var botonPausa : DisplayObject = new (getDefinitionByName("botPausa") as Class);
+			botonPausa.addEventListener(MouseEvent.CLICK, OnBotonPausaClick);
+			mBotonPausa = new UIComponent();
+			mBotonPausa.addChild(botonPausa);
+			addChild(mBotonPausa);
+			mBotonPausa.x = 600;
+			mBotonPausa.y = 0;
+			
+			// Subscritos para siempre al fin de render de texto
+			myClientQuestion.addEventListener("TextComplete", OnQuestionRenderEnd, false, 0, true);
+			
+			// Y al drop de un producto
+			myScroller.addEventListener("ProductDropped", OnProductDropped, false, 0, true);
+											
+			// Esperamos a que acaben de cargar los movieclips propios del nivel para empezar		
+			mLevelModel.addEventListener("RefreshComplete", OnRefreshedMovieClips, false, 0, true);
+			mLevelModel.RefreshMovieClips();
+		}
+		
+		private var mPaused : Boolean = false;
+		private var mPantallaPause : UIComponent;
+		private var mBotonPausa : UIComponent;
+		private function OnBotonPausaClick(event:MouseEvent):void
+		{
+			mPaused = !mPaused;
+			
+			if (mPaused)
+			{
+				mAudioManager.MuteMusic();
+				myClientQuestion.Pause =  true;
+				
+				if (mPantallaPause == null)
+				{
+					var pauseMC : MovieClip = new (getDefinitionByName("mcPausa") as Class);
+					mPantallaPause = new UIComponent;
+					mPantallaPause.addChild(pauseMC);
+					pauseMC.addEventListener(MouseEvent.CLICK, OnBotonPausaClick);
+				}
+				
+				addChild(mPantallaPause);
+			}
+			else
+			{
+				myClientQuestion.Pause = false;
+				mAudioManager.UnMuteMusic();
+				removeChild(mPantallaPause);
+			}
+		}
+		
+		private function OnRefreshedMovieClips(event:Event):void
+		{
+			mLevelModel.removeEventListener("RefreshComplete", OnRefreshedMovieClips);
+			StartIntroIfReady();		
+		}
+				
+		private function StartIntroIfReady() : void
+		{
+			mReadyCounter++;
+			
+			// Cuando nos llamen N veces querrá decir que hemos cargado todo
+			if (mReadyCounter == 1)
+				StartIntro();
+		
+		}
+		private function StartIntro():void
+		{
+			addEventListener(Event.ENTER_FRAME, MakeVisible, false, 0, true);
+			
+			// MovieClip Intro
+			if (mLevelModel.Intro.DaMovieClip != null)
+			{
+				addChild(mLevelModel.Intro.DaMovieClip);
+				var intro : MovieClip = mLevelModel.Intro.DaMovieClip.content.mcIntro; 
+				intro.btPlay.addEventListener(MouseEvent.CLICK, OnIntroPlayButtonClick, false, 0, true);
+																 
+				if (mChico)
+					intro.comercial.gotoAndStop("chico");
+				else
+					intro.comercial.gotoAndStop("chica");
+					
+				intro.play();
+			}
+			else
+			{
+				StartGame();
+			}
+		}
+		
+		private function OnIntroPlayButtonClick(event:MouseEvent):void
+		{
+			removeChildAt(numChildren-1);
+			StartGame();
+		}
+		
+		public function StartGame() : void
+		{
+			addEventListener(Event.ENTER_FRAME, OnEnterFrame, false, 0, true);
+			
+			// Audio
+			mAudioManager = new AudioManager();
+			mAudioManager.PlayMusic(mLevelModel.AssetPath+"/Musica.mp3");
+			
+			// Creación del juego
+			mGameController = new GameController(mLevelModel);
+			
+			// Pasamos variables iniciales de fuera al script
+			mGameController.TheCharacter.PuntosTienda = mPuntosTienda; 
+			
+			//  Subscripción a los eventos del personaje
+			mGameController.TheCharacter.addEventListener("LevelComplete", OnMisionCompletada, false, 0, true);
+			mGameController.TheCharacter.addEventListener("VidaAcabadaPorTiempo", OnVidaAcabadaPorTiempo, false, 0, true);
+									
+			// Auxiliares
+			mOnomatopeyasManager = new OnomatopeyasManager(this);
+			
+			myScroller.SetGameController(mGameController);
+			myFeedback.SetGameController(mGameController);
+			
+			// Primer refresco
+			UpdateCharacterState();	
+		}
+				
+		public function MakeVisible(event:Event):void
+		{
+			this.visible = true;
+			removeEventListener(Event.ENTER_FRAME, MakeVisible);
+			dispatchEvent(new Event("OnVisible"));	
+		}
+		
+		public function OnEnterFrame(event:Event):void
+		{
+			if (mPaused)
+			{
+				mGameController.TheCharacter.OnPause();
+				return;
+			}
+
+			if (!mGameController.TheCharacter.IsEnded)
+			{
+				mGameController.TheCharacter.RefreshVida();
+			}
+			var currVida : Number = mGameController.TheCharacter.Vida;
+			myGreenScore.SetPercent(currVida);
+		}
+		
+		public function OnLoadError(event : IOErrorEvent) : void
+		{	
+			trace("Imposible cargar recursos para la ejecución");		
+		}
+		
+		public function UpdateCharacterState() : void
+		{	
+			// Está el juego en estado ok?
+			if (mGameController.CurrentNode == null)
+				return;
+									
+			// Info debug
+			PrintDebugMessageAndCharacter("");
+			
+			// Actualizacion del estado grafico del personaje. Entramos.
+			if (mGameController.GetQuestion() != "")
+			{
+				// Si no nos definen movieclip de entrada, es que quieren que respetemos el que había
+				if (mGameController.GetEnterMovieClip() != null)
+					SetCurrCharacter(mGameController.GetEnterMovieClip() as SWFLoader);
+					
+				myClientQuestion.SetNextQuestion(mGameController.GetQuestion());
+			}
+			else
+			{
+				// Si no hay pregunta, nos saltamos la entrada gráfica y dejamos el texto como esté
+				OnQuestionRenderEnd(null);
+			}
+		}
+		
+		private function OnVidaAcabadaPorTiempo(event:Event):void
+		{
+			// Solo salimos si estamos en las respuestas, si no, esperamos a que se resuelva al acabar de renderizar lo
+			// que el cliente dice
+			if (mAnswerButtons.length != 0)
+				OnMisionCompletada(null);
+		}
+		
+		private function OnMisionCompletada(event:Event):void
+		{			
+			// Playamos el MovieClip de final
+			if (mLevelModel.Final.DaMovieClip != null)
+			{	
+				addChild(mLevelModel.Final.DaMovieClip);
+				
+				var mcEnd : MovieClip = mLevelModel.Final.DaMovieClip.content as MovieClip;
+				
+				if (mGameController.TheCharacter.Success)
+				{
+					mcEnd.mcFracaso.visible = false;
+					mcEnd.mcExito.gotoAndPlay(1);
+				}
+				else
+				{
+					mcEnd.mcExito.visible = false;
+					mcEnd.mcFracaso.gotoAndPlay(1);
+				}
+				
+				mcEnd.gotoAndPlay(1);
+				
+				var txt1 : String = (int(mGameController.TheCharacter.Puntuacion)*100).toString();
+				var txt2 : String = int(mGameController.TheCharacter.Vida).toString() + "%";
+				mcEnd.mcPuntuacion.ctPuntuacion.text = txt1;
+				mcEnd.mcPuntuacion.ctSatisfaccion.text = txt2;
+				mcEnd.mcFeedback.ctFeedback.text = mLevelModel.FindTextByID(mGameController.TheCharacter.EndMessage);
+				
+				mcEnd.mcPuntuacion.gotoAndPlay(1);
+				mcEnd.mcFeedback.gotoAndPlay(1);
+				
+				mcEnd.btPlay.addEventListener(MouseEvent.CLICK, OnMisionContinuarClick, false, 0, true);
+			}
+			else
+			{
+				StopGame();
+				dispatchEvent(new Event("GameEnd"));
+			}
+		}
+				
+		private function OnMisionContinuarClick(event:MouseEvent):void
+		{
+			StopGame();
+			dispatchEvent(new Event("GameEnd"));
+		}
+
+		private function PrintDebugMessageAndCharacter(msg : String) : void
+		{
+			if (mDebug != null)
+			{
+				if (msg != "")
+					mDebug.myDebugArea.text = msg
+				mDebug.myPersonajeArea.text = mGameController.TheCharacter.GetParamsFormatedString() + "\n";
+			}			
+		}
+		
+		private function OnQuestionRenderEnd(event:Event) : void
+		{							
+			// Ejecutamos el código de entrada
+			var retFromOnEnter : Object = mGameController.OnEnter();
+			
+			if (retFromOnEnter.Code != "OK")
+			{
+				PrintDebugMessageAndCharacter(retFromOnEnter.Message);
+				
+				if (retFromOnEnter.Code == "NODECHANGE")
+					UpdateCharacterState();
+
+				return;
+			}
+						
+			// Es posible que en el código de entrada el juego se haya acabado...
+			if (mGameController.TheCharacter.IsEnded)
+			{
+				// El evento de LevelComplete llegará a OnMisionCompletada salvo que la razón sea VidaAcabada... si es VidaAcabada,
+				// el sistema espera a mostrar el último texto y entonces salimos por aquí
+				if (mGameController.TheCharacter.EndReason == "VidaAcabadaPorTiempo" || 
+					mGameController.TheCharacter.EndReason == "VidaAcabadaPorError")
+					OnMisionCompletada(null);
+				return;
+			}
+				
+			// Pasamos a idle. Si este nodo tiene su nombre de movieclip vacio, quiere decir que quieren que no sobreescribamos
+			// el estado gráfico que hubiera
+			if (mGameController.GetIdleMovieClip() != null)	
+				SetCurrCharacter(mGameController.GetIdleMovieClip() as SWFLoader);
+									
+			// Creamos las nuevas respuestas
+			var currNode : Object = mGameController.CurrentNode;
+			var offsetY : Number = 80;
+			
+			var shuffleArray : Array = RandUtils.GenerateShuffledArray(currNode.Answers.length);
+			
+			for (var c : int = 0; c < shuffleArray.length; c++)
+			{	
+				var idxAnswer : int = shuffleArray[c];
+				
+				if (mGameController.ShallIShowIt(idxAnswer))
+				{	
+					var daText : String = mLevelModel.FindTextByID(currNode.Answers[idxAnswer].Text);
+					var idxClass : int = GetNumLineas(daText) - 1;
+					
+					var answerGUI : MovieClip = null;
+					if (idxClass < 8)
+					{
+						answerGUI = new mMensajePlayerClasses[idxClass];
+												
+						var formatMe : TextField = answerGUI.ctTextArea as TextField;
+						formatMe.antiAliasType = flash.text.AntiAliasType.ADVANCED;
+						formatMe.gridFitType = flash.text.GridFitType.SUBPIXEL;
+						
+						formatMe.text = daText;
+					}
+					else
+					{
+						answerGUI = new mMensajePlayerClasses[0];
+						answerGUI.ctTextArea.text = "Texto demasiado largo...CORREGIR!!!";						
+					}		
+					
+					answerGUI["AnswerIndex"] = idxAnswer;
+					
+					var uiComp : UIComponent = new UIComponent;
+					uiComp.addChild(answerGUI);
+					uiComp.x = 30;
+					uiComp.y = offsetY;
+					
+					//addChildAt(uiComp, getChildIndex(mGameArea)+1);
+					addChild(uiComp);
+					
+					mAnswerButtons.push(uiComp);
+					
+					offsetY += answerGUI.height + 10;
+				}
+			}
+			
+			// Mandamos a hacer el efecto de entrada y esperamos a que acabe para empezar a escuchar los clicks
+			var blinkHelper : AnswerVisualHelper = new AnswerVisualHelper(mAnswerButtons);
+			blinkHelper.addEventListener("EnterFadeInComplete", OnLastAnswerShowed, false, 0, true);
+			blinkHelper.DoEnterFadeIn();
+		}
+		
+		private function OnLastAnswerShowed(event:Event):void
+		{
+			for each(var comp : UIComponent in mAnswerButtons)
+				comp.getChildAt(0).addEventListener(MouseEvent.CLICK, OnAnswerClicked, false, 0, true);
+		}
+		
+		private function GetNumLineas(str : String) : int
+		{
+			// Tenemos que tener el primer movieclip para usarlo en el calculo
+			if (mMensajePlayerClasses.length < 1)
+				return 1;
+				
+			var temp : MovieClip = new mMensajePlayerClasses[0];
+			var textField : TextField = temp.ctTextArea as TextField;
+			textField.autoSize = TextFieldAutoSize.LEFT; 
+			textField.text = str;
+			return textField.numLines;
+		}
+		
+		private function OnAnswerClicked(event:MouseEvent) : void
+		{
+			if (!event.target.parent.hasOwnProperty("AnswerIndex"))
+				return;
+				
+			for each(var comp : UIComponent in mAnswerButtons)
+				comp.getChildAt(0).removeEventListener(MouseEvent.CLICK, OnAnswerClicked);
+						
+			var blinkHelper : AnswerVisualHelper = new AnswerVisualHelper(mAnswerButtons);
+			blinkHelper.addEventListener("BlinkingComplete", OnAnswerBlinkingComplete, false, 0, true);
+			blinkHelper.DoFinalBlink(event.target.parent as MovieClip);
+			
+			// Puntos que te dan por clickar esta respuesta
+			var puntos : Number = mGameController.CurrentNode.Answers[event.target.parent["AnswerIndex"]].ScoreLife;
+			puntos *= mGameController.TheCharacter.MultiplicadorVida;
+			
+			var puntosMC : MovieClip;
+			
+			if (puntos > 0)
+			{
+				puntosMC = new (getDefinitionByName("mcEstrellasPuntos") as Class);
+				puntosMC.mcPuntos.ctPuntos.text = "+" + ((puntos as int)*100).toString();
+			}
+			else
+			{
+				puntosMC = new (getDefinitionByName("mcEstrellasPuntosMenos") as Class);
+				puntosMC.mcPuntos.ctPuntos.text = ((puntos as int)*100).toString();
+			}
+			
+			var uiComp : UIComponent = new UIComponent();
+			uiComp.addChild(puntosMC);
+			uiComp.x = event.stageX;
+			uiComp.y = event.stageY;
+			uiComp.width = puntosMC.width;
+			uiComp.height = puntosMC.height;
+			
+			addChild(uiComp);
+			
+			var listener : MovieClipListener = new MovieClipListener();
+			listener.listenToAnimEnd(puntosMC, OnAnimPuntosEnd, true, 1);
+		}
+		
+		private function OnAnimPuntosEnd(mc:MovieClip):void
+		{
+			mc.parent.parent.removeChild(mc.parent);
+		}
+		
+		private function OnAnswerBlinkingComplete(event:NumericStepperEvent):void
+		{
+			var answerIdx : int = event.value;
+			var currNode : Object = mGameController.CurrentNode;
+			var success : Object = mGameController.ChooseAnswer(answerIdx);
+			
+			success.Message += "\nScript de la respuesta ejecutado :\n" + currNode.Answers[answerIdx].ExecuteCode;
+			
+			PrintDebugMessageAndCharacter(success.Message);
+		
+			// Borramos los botones de respuesta del estado anterior
+			RemoveAnswers();
+			
+			UpdateCharacterState();	
+		}
+	
+		private function OnProductDropped(event:TextEvent):void
+		{
+			var productName : String = event.text;
+			
+			var success : Object = mGameController.ExecuteProduct(productName);
+			
+			if (success.Code == "ERROR")
+			{
+				PrintDebugMessageAndCharacter(success.Message);
+			}
+			else
+			{
+				PrintDebugMessageAndCharacter("Producto ejecutado :\n" + productName);
+				UpdateCharacterState();
+			}	
+		}
+		
+		private function SetCurrCharacter(mc : SWFLoader):void
+		{						
+			var newOne : MovieClip;
+			
+			if (mc != null)
+				newOne = mc.content as MovieClip;
+			else
+				newOne = mErrorMovieClip; 
+			
+			if (newOne != mCurrCharacter)
+			{
+				var currIdx : int = 1;
+				if (mCurrCharacter != null)
+				{
+					currIdx = mGameArea.getChildIndex(mCurrCharacter);
+					mGameArea.removeChild(mCurrCharacter);
+				}
+				
+				mCurrCharacter = newOne;
+				mGameArea.addChildAt(mCurrCharacter, currIdx);
+				
+				mCurrCharacter.gotoAndPlay(1);
+						
+				// Posicionamos puesto que viene recortado
+				mCurrCharacter.x = 325;
+			}
+			else if (mCurrCharacter != null)
+			{
+				mCurrCharacter.gotoAndPlay(1);
+			}
+		}			
+						
+		private function RemoveAnswers() : void
+		{
+			for each (var ans : DisplayObject in mAnswerButtons)
+				removeChild(ans);			
+			mAnswerButtons = new Array();
+		}
+						
+		private var mReadyCounter : int = 0;
+		
+		private var mLevelModel : LevelModel;
+		private var mGameController : GameController;
+		private var mChico : Boolean = false;
+		private var mChicoCliente : Boolean = true;
+		private var mPuntosTienda : int = 0;
+					
+		private var mAudioManager : AudioManager;
+		private var mOnomatopeyasManager : OnomatopeyasManager;
+	
+		private var mCurrCharacter : MovieClip;
+
+		private var mGameArea : UIComponent;
+		private var mErrorMovieClip : MovieClip;
+		private var mMensajePlayerClasses : Array = new Array();
+		private var mScroller : Scroller;				
+		private var mMarco : UIComponent;
+		private var mAnswerButtons :Array = new Array();
+		
+		// Loader para todos los elementos del GUI 
+		private var mGUI : SWFLoader;
+		
+		// Debug console que nos pasan de fuera
+		private var mDebug : DebugWindow;
+
+	]]>
+	</mx:Script>
+		
+	<GameView:QuestionText id="myClientQuestion" x="376" y="270" width="174" height="61" 
+		borderThickness="0" borderStyle="none" selectable="false" mouseEnabled="false"
+		focusEnabled="false" focusThickness="0"
+		>		
+	</GameView:QuestionText>
+	<GameView:GreenScore id="myGreenScore" x="196.5" y="0" width="337" height="80">
+	</GameView:GreenScore>
+	
+	<GameView:Scroller id="myScroller" x="38" y="419">
+	</GameView:Scroller>
+	
+	<GameView:FeedbackText id="myFeedback" x="0" y="390">		
+	</GameView:FeedbackText>
+	
+</mx:Canvas>
+

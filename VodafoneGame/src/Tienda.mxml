@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="730" height="553"
+	creationComplete="OnCreationComplete()"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	>
+	
+	<mx:Script>
+		<![CDATA[
+			import GameView.AudioManager;
+			import Utils.MovieClipMouseDisabler;
+			import Utils.MovieClipFinder;
+			import Utils.MovieClipListener;
+			import flash.utils.getDefinitionByName;
+			import mx.controls.SWFLoader;
+			import mx.controls.Alert;
+			
+			public function SetGameStatus(gs : GameStatus) : void { mGameStatus = gs; }
+			
+			private function OnCreationComplete() : void
+			{
+				this.visible = false;
+			
+				mTiendaSWF = new SWFLoader();
+				mTiendaSWF.loaderContext = new LoaderContext(false, ApplicationDomain.currentDomain);
+				
+				mTiendaSWF.addEventListener("complete", OnTiendaLoadComplete, false, 0, true);
+				mTiendaSWF.addEventListener("ioError", OnLoadError, false, 0, true);
+				mTiendaSWF.load("GUI/Tienda.swf");
+			}
+			
+			private function OnTiendaLoadComplete(event:Event):void
+			{
+				addChild(mTiendaSWF);
+				
+				this.visible = true;
+				
+				// Nos quedamos con el MC del interior
+				mcInteriorTienda = (mTiendaSWF.content as MovieClip).getChildByName("mcInterior") as MovieClip;
+				
+				// Queremos que pase por el centro de la pantalla justo en la coordenada en la que nos viene inicialmente.
+				// Hay que tener en cuenta que el movimiento de la columna se produce en espacio de fondo, con lo
+				// cual su velocidad es relativa a la del mismo
+				mcInteriorTienda.mcColumna.x = 2300.0*ColumnaSpeed/FondoSpeed - ((365.0-83.0)*((ColumnaSpeed-FondoSpeed)/FondoSpeed));
+				mcInteriorTienda.mcMostrador.x = 500.0*MostradorSpeed/FondoSpeed - ((365.0-457.0)*((MostradorSpeed-FondoSpeed)/FondoSpeed));;
+				
+				if (mGameStatus.Nick == "")
+				{
+					(mTiendaSWF.content as MovieClip).stop();
+					var nickDialog : NickDialog = new NickDialog();
+					nickDialog.SetGameStatus(mGameStatus);
+					nickDialog.addEventListener("NickDialogComplete", OnNickDialogComplete, false, 0, true);
+					addChild(nickDialog);
+				}
+				else
+				{
+					OpenChapa();
+				}
+			}
+			
+			private function OpenChapa() : void
+			{
+				var statusXML : XML = mGameStatus.TiendaStatus;
+				mRemainingElements = new Array;
+				
+				for each(var item : XML in statusXML.child("Element"))
+				{
+					var idx : int = parseInt(item);
+					mRemainingElements.push(idx);
+				}
+				
+				// Preparación gráfica. Nos movemos para que el mostrador sea el origin. Mostramos los KOs que tocan en este
+				// round. Nada debe recibir el raton.
+				MoveScroll(550);
+				Utils.MovieClipMouseDisabler.DisableMouse(mTiendaSWF.content as DisplayObjectContainer);
+				PrepareKOs();
+				
+				(mTiendaSWF.content as MovieClip).mcAviso.alpha = 0.0;
+							
+				if (!mGameStatus.HasBeenCompleted)
+				{
+					// Si no acabamos de hacer login, es decir, hemos jugado ya un personaje, saltamos al ready
+					if (!mGameStatus.FirstTime)
+						(mTiendaSWF.content as MovieClip).gotoAndPlay("Ready");	
+					else
+						(mTiendaSWF.content as MovieClip).play();
+				}
+				else
+				{						
+					// Para que cuando continue jugando al siguiente nivel a este no vuelva a entrar aquí
+					mGameStatus.ClearHasBeenCompleted();
+					
+					(mTiendaSWF.content as MovieClip).gotoAndPlay("Final");
+					
+					MovieClipListener.AddFrameScript((mTiendaSWF.content as MovieClip), "Final", OnTiendaFinal);
+				}
+				
+				var daListener : MovieClipListener = new MovieClipListener();
+				daListener.listenToLabel(mTiendaSWF.content as MovieClip, "Ready", OnTiendaReady, true, 1);
+				
+				// Audio
+				mAudioManager = new AudioManager();
+				mAudioManager.PlayMusic("Assets/Tienda.mp3");
+			}
+			
+			private function OnTiendaFinal():void
+			{
+				var mc : MovieClip = (mTiendaSWF.content as MovieClip);
+				
+				mc.mcBocadilloFinal.ctPuntos.text = int(mGameStatus.ScoreSoFar)*100;
+				mc.mcBocadilloFinal.ctSatisfaccion.text = int(mGameStatus.SatisfaccionSoFar);
+
+				if (mGameStatus.SatisfaccionSoFar >= 50)
+					mc.mcBocadilloFinal.ctCreditos.text = "30";
+				else
+					mc.mcBocadilloFinal.ctCreditos.text = "20";
+					
+				mc.mcBocadilloFinal.btComenzar.addEventListener(MouseEvent.CLICK, OnContinuarTiendaFinalClick);
+			}
+			
+			private function OnContinuarTiendaFinalClick(event:MouseEvent):void
+			{
+				(event.target).removeEventListener(MouseEvent.CLICK, OnContinuarTiendaFinalClick);
+				(mTiendaSWF.content as MovieClip).gotoAndPlay("Ready");
+			}
+			
+			private function OnNickDialogComplete(event:Event):void
+			{
+				removeChild(event.target as NickDialog);
+				
+				mGameStatus.addEventListener("AddStatusComplete", OnAddStatusComplete);
+				mGameStatus.TiendaStatus = GetTiendaStatusXML();
+				mGameStatus.AddStatus();
+			}
+			
+			private function OnAddStatusComplete(event:Event) : void
+			{
+				mGameStatus.removeEventListener("AddStatusComplete", OnAddStatusComplete);
+								
+				OpenChapa();
+			}
+			
+			private function GetTiendaStatusXML() : XML
+			{
+				var tiendaStatus : XML = <TiendaStatus></TiendaStatus>
+				
+				for (var c : int = 0; c < mRemainingElements.length; c++)
+				{
+					var elemXML : XML = <Element>{mRemainingElements[c]}</Element>
+					tiendaStatus.appendChild(elemXML);
+				}			
+				
+				return tiendaStatus;
+			}
+			
+			private function OnTiendaReady(mc : MovieClip):void
+			{
+				var timeToPlay : Number = 30000;
+				
+				if (mGameStatus.FirstTime)
+				{
+					mGameStatus.PuntosTienda = 0;
+					(mTiendaSWF.content as MovieClip).mcAviso.alpha = 1.0;
+					(mTiendaSWF.content as MovieClip).mcAviso.gotoAndPlay(1);
+				}
+				else
+				{
+					timeToPlay = 2000;
+				}
+				
+				mTimer = new Timer(timeToPlay, 1);
+				mTimer.addEventListener(TimerEvent.TIMER, OnTimerClienteEntro, false, 0, true);
+				mTimer.start();
+				
+				stage.addEventListener(MouseEvent.MOUSE_DOWN, OnStageMouseDown, false, 0, true);
+				stage.addEventListener(MouseEvent.MOUSE_UP, OnStageMouseUp, false, 0, true);
+				stage.addEventListener(MouseEvent.MOUSE_MOVE, OnStageMouseMove, false, 0, true);
+				
+				addEventListener(Event.ENTER_FRAME, OnEnterFrame, false, 0, true);
+			}
+			
+			private function OnTimerClienteEntro(event:TimerEvent):void
+			{
+				event.target.removeEventListener(TimerEvent.TIMER, OnTimerClienteEntro);
+			
+				// Aquí se acabó el juego de descubrir elementos
+				mDoNotAcceptMoreElementClicks = true;
+				mGameStatus.TiendaStatus = GetTiendaStatusXML();
+				mAudioManager.FadeOutMusic();
+				
+				if (mGameStatus.FirstTime)
+					mGameStatus.PuntosTienda = (mNumElementsToSolve == 0)? 1 : -1;
+				
+				var daSound : Sound = new (getDefinitionByName("SoundDoorBell")  as Class);
+				daSound.play(0, 1);
+				var doorTimer : Timer = new Timer(2000);
+				doorTimer.addEventListener(TimerEvent.TIMER, OnDoorBellComplete);
+				doorTimer.start();
+			}
+			
+			private function OnDoorBellComplete(event:TimerEvent):void
+			{
+				mGameStatus.FirstTime = false;
+				
+				(event.target as Timer).removeEventListener(TimerEvent.TIMER, OnDoorBellComplete);		
+				dispatchEvent(new Event("TiendaGameEnd"));
+			}
+			
+			private function OnElementClick(event:MouseEvent):void
+			{
+				if (mDoNotAcceptMoreElementClicks)
+					return;
+								
+				var element : MovieClip = event.currentTarget as MovieClip;
+				var elementName : String = element["ElementName"];	
+			
+				if (elementName == "mcTarifas")
+				{
+					var cajon : MovieClip = element.getChildByName("mcCajon") as MovieClip;
+					if (element.currentLabel == "ok")
+					{
+						if (cajon.currentLabel == "abierto") 
+							cajon.gotoAndStop("cerrado");
+						else
+							cajon.gotoAndStop("abierto");
+						
+						// El cajon en ok se limita a switchear
+						return;
+					}
+					else
+					{
+						if (cajon.currentLabel == "cerrado")
+						{
+							// Lo abrimos y la proxima vez ya será un elemento en ko abierto
+							cajon.gotoAndStop("abierto");
+							return;
+						}
+					}
+				}
+				
+				element.gotoAndPlay("okmensaje");
+				mNumElementsToSolve--;
+				
+				// Lo quitamos de la lista pq está resuelto				
+				var bFound : Boolean = false;				
+				for (var c:int = 0; c < mRemainingElements.length; c++)
+				{
+					if (Elements[mRemainingElements[c]] == elementName)
+					{
+						trace("Vamos a eliminar de la lista el elemento : " + mRemainingElements[c] + " " + elementName);
+						mRemainingElements.splice(c, 1);
+						bFound = true;
+						break;
+					}
+				}
+				
+				if (!bFound) throw new Error("ERROR FATAL");
+								
+				// Ha descubierto todos, reiniciamos el juego
+				if (mRemainingElements.length == 0)
+					mRemainingElements = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+				
+				// Y entra el cliente en 3 segundos...
+				if (mNumElementsToSolve == 0)
+					mTimer.delay = 3000;
+				
+				element.removeEventListener(MouseEvent.CLICK, OnElementClick);
+			}
+			
+			private function PrepareKOs() : void
+			{
+				mcInteriorTienda.mouseEnabled = false;
+				
+				// Las tarifas siempre son cliclabes
+				var tarifas : MovieClip = Utils.MovieClipFinder.GetDeepChildByName("mcTarifas", mcInteriorTienda) as MovieClip;
+				tarifas.addEventListener(MouseEvent.CLICK, OnElementClick, false, 0, true);
+				tarifas.mouseEnabled = true;
+				tarifas["ElementName"] = "mcTarifas";
+				
+				if (mGameStatus.FirstTime)
+				{
+					mNumElementsToSolve = 0;
+					var auxArray : Array = mRemainingElements.slice(0, mRemainingElements.length);
+					for (var c:int = 0; c < 3; c++)
+					{
+						var elementName : String = ExtractNextElement(auxArray);
+						var element : MovieClip = Utils.MovieClipFinder.GetDeepChildByName(elementName, mcInteriorTienda) as MovieClip;
+						element.gotoAndStop("ko");
+						element.mouseEnabled = true;
+						element["ElementName"] = elementName;
+						
+						element.addEventListener(MouseEvent.CLICK, OnElementClick, false, 0, true);
+						mNumElementsToSolve++;
+						
+						// Ponemos sólo los que queden
+						if (auxArray.length == 0)
+							break;
+					}
+				}
+			}
+			
+			static private function ExtractNextElement(auxArray : Array) : String
+			{
+				var randomNum:Number = Math.round(Math.random() * (auxArray.length-1));
+				var ret : String = Elements[auxArray[randomNum]];
+				auxArray.splice(randomNum, 1);
+				return ret; 
+			}
+			
+			private function OnEnterFrame(event:Event):void
+			{
+				var currTime : Number = getTimer();
+				if (!mLastTime == -1)
+					mElapsed = currTime - mLastTime;
+				else
+					mElapsed = -1;
+					
+				/*
+				 * Sistema de arrastrar y soltar
+				 *
+				mMoveTarget = mMoveTarget*0.5;
+				MoveScroll(mMoveTarget*mElapsed);
+				
+				if (Math.abs(mMoveTarget) < 0.5)
+					mMoveTarget = 0;
+				*/
+				
+				if (mPrevMousePosX != -666)
+				{
+					if (mPrevMousePosX < 150)
+					{
+						MoveScroll(mElapsed*8.0);
+					}
+					else
+					if (mPrevMousePosX > 580)
+					{
+						MoveScroll(-mElapsed*8.0);
+					}
+				}
+												
+				mLastTime = currTime;
+			}
+			
+			private function OnStageMouseDown(event:MouseEvent):void
+			{
+				mMoving = true;
+			}
+			private function OnStageMouseUp(event:MouseEvent):void
+			{
+				mMoving = false;
+			}
+			private var mPrevMousePosX : Number = -666;
+			private function OnStageMouseMove(event:MouseEvent):void
+			{
+				if (mMoving)
+					mMoveTarget += event.stageX - mPrevMousePosX;
+				
+				mPrevMousePosX = event.stageX;
+			}
+
+			private function MoveScroll(moveAmount : Number):void
+			{				
+				mcInteriorTienda.x -= moveAmount*FondoSpeed;
+				
+				// El width de la tienda cambia dinámicamente -> piñon
+				if (mcInteriorTienda.x < 730.0-3235)
+					mcInteriorTienda.x = 730.0-3235;
+				else
+				if (mcInteriorTienda.x  > 0)
+					mcInteriorTienda.x = 0;
+				else
+				{
+					mcInteriorTienda.mcColumna.x -= moveAmount*(ColumnaSpeed-FondoSpeed);
+					mcInteriorTienda.mcMostrador.x -= moveAmount*(MostradorSpeed-FondoSpeed);
+				}
+			}
+						
+			private function OnLoadError(event:IOErrorEvent):void
+			{
+				Alert.show("No se pudo cargar GUI/Tienda.swf", "Error", mx.controls.Alert.OK);
+			}
+			
+			
+			private var   		 mNumElementsToSolve : int = 0;
+			private var   		 mRemainingElements : Array = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+			static private const Elements : Array = [ "mcTarifas", "mcTerminales", "mcCarpeta", "mcColumna", 
+											   		  "mcPoster1", "mcPoster2", "mcPoster3", "mcPoster4",
+											   		  "mcBlisters", "mcVitrina" ];
+
+			private var mTimer : Timer;
+			private var mGameStatus : GameStatus;
+			private var mTiendaSWF : SWFLoader;
+			private var mcInteriorTienda : MovieClip;
+			private var mElapsed : Number = 0;
+			private var mLastTime : Number = -1;
+			private var mDoNotAcceptMoreElementClicks : Boolean = false;
+			
+			private var mMoving : Boolean = false;
+			private var mMoveTarget : Number = 0;
+			
+			private const FondoSpeed : Number = 1;
+			private const ColumnaSpeed : Number = 1.2;
+			private const MostradorSpeed : Number = 2.5;
+			private var mAudioManager : AudioManager;
+		]]>
+	</mx:Script>
+	
+</mx:Canvas>

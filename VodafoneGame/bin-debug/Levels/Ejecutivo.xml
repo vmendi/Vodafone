@@ -1,0 +1,2139 @@
+<Level>
+  <Node>
+    <Name>Inicio</Name>
+    <Question>...</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>FinalCaso=1;DanoPorSegundo=0.2;Vida=50;MultiplicadorVida=3;PAvendido=false;PBvendido=false;VentaCruzada=75 - (PuntosTienda*5);GotoState("INICIO1");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>INICIO1</Name>
+    <Question>inicio1TXT</Question>
+    <Answers>
+      <Answer>
+        <Text>11</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R11</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>12</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N2</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R12</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>13</Text>
+        <ExecuteCode>ShowFeedback("F13");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R13</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>INICIO2</Name>
+    <Question>Inicio2TXT</Question>
+    <Answers>
+      <Answer>
+        <Text>13</Text>
+        <ExecuteCode>ShowFeedback("F13");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith>R13</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>14</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R14</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>15</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N1</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R15</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N1</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>21</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R21</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>22</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R22</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>23</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT1</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N2</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>21</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R21</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>23</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT1</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>25</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R25</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N3</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>23</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT1</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>24</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N5</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R24</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>25</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N4</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R25</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N4</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>31</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R31</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>32</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R32</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>34</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R34</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N5</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>31</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R31</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>32</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R32</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>33</Text>
+        <ExecuteCode>ShowFeedback("F33");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N6</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R33</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT1</Name>
+    <Question>R23</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F23";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N6</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>41</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R41</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>42</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R42</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>43</Text>
+        <ExecuteCode>ShowFeedback("F43");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N7</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R43</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N7</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>51</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N8</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>52</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N8</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>53</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT2</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT2</Name>
+    <Question>R53</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F53";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N8</Name>
+    <Question>ObjecionA</Question>
+    <Answers>
+      <Answer>
+        <Text>OA1</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N26</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OA2</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT11</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OA3</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT3</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT11</Name>
+    <Question>ROA2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOA2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT3</Name>
+    <Question>ROA3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOA3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N9</Name>
+    <Question>R51R52</Question>
+    <Answers>
+      <Answer>
+        <Text>61</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_positivo_final.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R61</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>62</Text>
+        <ExecuteCode>ShowFeedback("F62");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R62</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>63</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT4</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT4</Name>
+    <Question>R63</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F63";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N10</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>71</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT5</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>72</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT24");} else {  ShowBackOnomatopeya("mcVentaCruzada");}</ExecuteCode>
+        <ConditionCode>if(!PAvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N11</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>73</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT25");} else {  ShowBackOnomatopeya("mcVentaCruzada");}</ExecuteCode>
+        <ConditionCode>if(!PBvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N18</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>FinalCaso=0;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT5</Name>
+    <Question>R71</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>FinalCaso=2;TxtFeedback="F71";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT22</Name>
+    <Question>R143</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F143";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N11</Name>
+    <Question>R72A</Question>
+    <Answers>
+      <Answer>
+        <Text>81</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT26</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>82</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N12</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R82</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>83</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT6</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>HideBackOnomatopeya();FinalCaso=3;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT6</Name>
+    <Question>R83</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F83";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N12</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>91</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N13</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R91</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>92</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT7</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>93</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N13</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R93</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT7</Name>
+    <Question>R92</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F92";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N13</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>101</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N14</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>102</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N14</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>103</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT8</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT8</Name>
+    <Question>R103</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F103";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N14</Name>
+    <Question>ObjecionC</Question>
+    <Answers>
+      <Answer>
+        <Text>OC1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT9</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OC2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N15</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OC3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT10</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT9</Name>
+    <Question>ROC1</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOC1";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT10</Name>
+    <Question>ROC3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOC3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N15</Name>
+    <Question>R101R102</Question>
+    <Answers>
+      <Answer>
+        <Text>111</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N16</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R111</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>112</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N16</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R112</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>113</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT12</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT12</Name>
+    <Question>R113</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F113";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N16</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>121</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N17</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R121</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>122</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N17</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R122</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>123</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT13</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT13</Name>
+    <Question>R123</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F123";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N17</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>131</Text>
+        <ExecuteCode>PAvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_positivo_final.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R131</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>132</Text>
+        <ExecuteCode>PAvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_positivo_final.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R132</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>133</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT14</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT14</Name>
+    <Question>R133</Question>
+    <Answers>
+      <Answer>
+        <Text>Default Answer 0</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>DefaultExit.swf</ExitMovieClipName>
+        <IdleMovieClipName/>
+        <DefaultGotoNode/>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F133";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N18</Name>
+    <Question>R73A</Question>
+    <Answers>
+      <Answer>
+        <Text>84</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N19</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R84</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>85</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT15</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>86</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N19</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R86</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>HideBackOnomatopeya();FinalCaso=3;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT15</Name>
+    <Question>R85</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F85";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N19</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>94</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N20</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R94</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>95</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N20</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith>R95</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>96</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT16</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT16</Name>
+    <Question>R96</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F96";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N20</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>104</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");ShowFeedback("F104");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N21</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>105</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N21</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>106</Text>
+        <ExecuteCode>ShowBackOnomatopeya("mcObjeciones");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N21</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N21</Name>
+    <Question>ObjecionD</Question>
+    <Answers>
+      <Answer>
+        <Text>OD1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N22</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OD2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT17</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OD3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT18</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT17</Name>
+    <Question>ROD2</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOD2";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT18</Name>
+    <Question>ROD3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOD3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N22</Name>
+    <Question>R105R106</Question>
+    <Answers>
+      <Answer>
+        <Text>114</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N24</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R114</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>115</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+        <DefaultGotoNode>N24</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith>R115</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>116</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+        <DefaultGotoNode>N24</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R116</CombineWith>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_positivo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_positivo.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>N24</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>122</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N25</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>123</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT19</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>124</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT20</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT19</Name>
+    <Question>R123</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F123";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT20</Name>
+    <Question>R124</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F124";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N25</Name>
+    <Question>R122</Question>
+    <Answers>
+      <Answer>
+        <Text>134</Text>
+        <ExecuteCode>PBvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_positivo_final.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>1</ScoreLife>
+        <CombineWith>R134</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>135</Text>
+        <ExecuteCode>PBvendido=true;</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName>EJECUTIVO_positivo_final_habla.swf</ExitMovieClipName>
+        <IdleMovieClipName>EJECUTIVO_positivo_final.swf</IdleMovieClipName>
+        <DefaultGotoNode>N10B</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith>R135</CombineWith>
+      </Answer>
+      <Answer>
+        <Text>136</Text>
+        <ExecuteCode>ShowFeedback("F136");</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT21</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT21</Name>
+    <Question>R136</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F136";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>FINALEXITO</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>if (FinalCaso==1){  Vida=0;} else if (FinalCaso==2) {  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==3){  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==4) {  if (PAvendido || PBvendido) {    Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;  }}NivelFinalizado(true,TxtFeedback);</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>FINALFRACASO</Name>
+    <Question/>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>if (FinalCaso==1){  Vida=0;} else if (FinalCaso==2) {  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==3){  Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;} else if (FinalCaso==4) {  if (PAvendido || PBvendido) {    Vida=(Vida&lt;VentaCruzada) ? Vida : VentaCruzada;  }}NivelFinalizado(false,TxtFeedback);</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N10B</Name>
+    <Question/>
+    <Answers>
+      <Answer>
+        <Text>71</Text>
+        <ExecuteCode/>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT23</DefaultGotoNode>
+        <ScoreLife>0</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>72</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT24");}</ExecuteCode>
+        <ConditionCode>if(!PAvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N11</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>73</Text>
+        <ExecuteCode>if(Vida&lt;VentaCruzada){  GotoState("EXIT25");}</ExecuteCode>
+        <ConditionCode>if(!PBvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N18</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>143</Text>
+        <ExecuteCode/>
+        <ConditionCode>if(PAvendido &amp;&amp; PBvendido){  return true;} else {  return false;}</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT22</DefaultGotoNode>
+        <ScoreLife>-1</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName/>
+    <IdleMovieClipName/>
+    <OnEnterCode>VentaCruzada = VentaCruzada+5;</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT23</Name>
+    <Question>R71</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>FinalCaso=2;TxtFeedback="F141";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT24</Name>
+    <Question>R72B</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F72B";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT25</Name>
+    <Question>R73B</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F73B";GotoState("FINALEXITO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT26</Name>
+    <Question>R81</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="F81";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>N26</Name>
+    <Question>ObjecionB</Question>
+    <Answers>
+      <Answer>
+        <Text>OB1</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT27</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OB2</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>N9</DefaultGotoNode>
+        <ScoreLife>2</ScoreLife>
+        <CombineWith/>
+      </Answer>
+      <Answer>
+        <Text>OB3</Text>
+        <ExecuteCode>HideBackOnomatopeya();</ExecuteCode>
+        <ConditionCode>return true;</ConditionCode>
+        <ExitMovieClipName/>
+        <IdleMovieClipName/>
+        <DefaultGotoNode>EXIT28</DefaultGotoNode>
+        <ScoreLife>-3</ScoreLife>
+        <CombineWith/>
+      </Answer>
+    </Answers>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral.swf</IdleMovieClipName>
+    <OnEnterCode/>
+  </Node>
+  <Node>
+    <Name>EXIT27</Name>
+    <Question>ROB1</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_neutral_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOB1";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <Node>
+    <Name>EXIT28</Name>
+    <Question>ROB3</Question>
+    <Answers/>
+    <RangedVars/>
+    <EnterMovieClipName>EJECUTIVO_negativo_habla.swf</EnterMovieClipName>
+    <IdleMovieClipName>EJECUTIVO_neutral_negativo.swf</IdleMovieClipName>
+    <OnEnterCode>TxtFeedback="FOB3";GotoState("FINALFRACASO");</OnEnterCode>
+  </Node>
+  <DaText>
+    <ID>11</ID>
+    <Text>Buenos días, ¿en qué puedo ayudarle?</Text>
+  </DaText>
+  <DaText>
+    <ID>12</ID>
+    <Text>Hola, ¿qué desea?</Text>
+  </DaText>
+  <DaText>
+    <ID>13</ID>
+    <Text>¿Qué tal?</Text>
+  </DaText>
+  <DaText>
+    <ID>14</ID>
+    <Text>Buenos días, ¿desea que le informe de algo en especial?</Text>
+  </DaText>
+  <DaText>
+    <ID>15</ID>
+    <Text>Hola, ¿venía a por algo en especial?</Text>
+  </DaText>
+  <DaText>
+    <ID>R11</ID>
+    <Text>Buenos días. Me gustaría saber cómo funciona el módem USB de Vodafone, me gustaría poder acceder a Internet desde mi ordenador.</Text>
+  </DaText>
+  <DaText>
+    <ID>R12</ID>
+    <Text>Hola, ¿Me podría dar información sobre el módem USB?</Text>
+  </DaText>
+  <DaText>
+    <ID>R13</ID>
+    <Text>¿Cuánto vale el módem USB?</Text>
+  </DaText>
+  <DaText>
+    <ID>R14</ID>
+    <Text>Venía buscando información sobre el módem USB de Vodafone.</Text>
+  </DaText>
+  <DaText>
+    <ID>R15</ID>
+    <Text>Estaba mirando los planes de datos que aparecen aquí en la vitrina.</Text>
+  </DaText>
+  <DaText>
+    <ID>21</ID>
+    <Text>¿Es usted cliente de Vodafone?</Text>
+  </DaText>
+  <DaText>
+    <ID>22</ID>
+    <Text>Desea un plan de datos por lo que veo. ¿Le interesaría añadir voz a su plan de datos?</Text>
+  </DaText>
+  <DaText>
+    <ID>23</ID>
+    <Text>Aquí tiene el folleto, si necesita cualquier cosa me lo comenta...</Text>
+  </DaText>
+  <DaText>
+    <ID>24</ID>
+    <Text>Depende del plan de datos que asocie al módem. Los hay de 19€, 29€, 39€ y 49€</Text>
+  </DaText>
+  <DaText>
+    <ID>25</ID>
+    <Text>Espere que lo miro en un momento. ¿Va a querer un plan de datos y llamadas o sólo datos?</Text>
+  </DaText>
+  <DaText>
+    <ID>R21</ID>
+    <Text>No, soy de Movistar, pero me han informado de que Vodafone ofrece un módem USB con tarifas a buen precio, ya que Movistar es un poco cara.</Text>
+  </DaText>
+  <DaText>
+    <ID>R22</ID>
+    <Text>No, no, simplemente quería conectarme a Internet desde mi ordenador, no me interesa un plan de voz...</Text>
+  </DaText>
+  <DaText>
+    <ID>R23</ID>
+    <Text>Vale. … Bueno pues ahora que conozco la oferta me lo pensaré. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>R24</ID>
+    <Text>Vale, y ¿qué diferencia hay entre ellos?</Text>
+  </DaText>
+  <DaText>
+    <ID>R25</ID>
+    <Text>En principio sólo quiero conectarme a Internet, con datos me vale.</Text>
+  </DaText>
+  <DaText>
+    <ID>31</ID>
+    <Text>¿Para qué se conecta exactamente a Internet?</Text>
+  </DaText>
+  <DaText>
+    <ID>32</ID>
+    <Text>Bueno las tarifas dependen de lo que se quiera conectar a Internet y el uso que haga...</Text>
+  </DaText>
+  <DaText>
+    <ID>33</ID>
+    <Text>La diferencia está en la velocidad y límite de capacidad...</Text>
+  </DaText>
+  <DaText>
+    <ID>34</ID>
+    <Text>Vale, entonces le comento con más detalle los Planes de Datos. ¿Para qué desea exactamente conectarse a Internet?</Text>
+  </DaText>
+  <DaText>
+    <ID>R31</ID>
+    <Text>Navego sobre todo para leer el periódico, buscar información, consultar el estado de los vuelos, el e-mail…</Text>
+  </DaText>
+  <DaText>
+    <ID>R32</ID>
+    <Text>Vale. A mí me interesa conectarme bastante, y sobre todo para consultar el periódico y otra información así como el correo electrónico.</Text>
+  </DaText>
+  <DaText>
+    <ID>R33</ID>
+    <Text>Bueno, yo necesito algo que no tenga mucho límite, mi intención es conectarme bastante.</Text>
+  </DaText>
+  <DaText>
+    <ID>R34</ID>
+    <Text>Pues para consultar información, leer el correo, etc., sobre todo cuando estoy de viaje por trabajo.</Text>
+  </DaText>
+  <DaText>
+    <ID>41</ID>
+    <Text>Le interesa por lo tanto conectarse frecuentemente y tener un límite alto de capacidad, ¿verdad?</Text>
+  </DaText>
+  <DaText>
+    <ID>42</ID>
+    <Text>Entonces necesita la Tarifa Plana Navega Plus. ¿Le interesaría tener llamadas a fijos nacionales  por 10€/mes más al mes?</Text>
+  </DaText>
+  <DaText>
+    <ID>43</ID>
+    <Text>Tenemos entonces una tarifa plana por 39€/mes. ¿Le interesaría?</Text>
+  </DaText>
+  <DaText>
+    <ID>R41</ID>
+    <Text>Sí, eso es justo lo que estaba buscando. Me gustaría conectarme en cualquier momento y a ser posible sin límite, como una tarifa plana.</Text>
+  </DaText>
+  <DaText>
+    <ID>R42</ID>
+    <Text>No, la verdad es que no me interesa llamar a fijos.</Text>
+  </DaText>
+  <DaText>
+    <ID>R43</ID>
+    <Text>Depende de lo que incluya esa tarifa. ¿Me podría explicar en qué consiste?</Text>
+  </DaText>
+  <DaText>
+    <ID>51</ID>
+    <Text>Entonces le comento la tarifa que más le conviene, Tarifa Plana Navega Plus: por 39€/mes podrá conectarse a Internet con tarifa plana, a una velocidad de 3Mbps.</Text>
+  </DaText>
+  <DaText>
+    <ID>52</ID>
+    <Text>Son 39€/mes a 3Mbps. A partir de 1GB la velocidad baja a 128Kbps</Text>
+  </DaText>
+  <DaText>
+    <ID>53</ID>
+    <Text>Pues aquí le dejo el folleto con toda la información de las tarifas para que elija la que más le convenga...</Text>
+  </DaText>
+  <DaText>
+    <ID>R51R52</ID>
+    <Text>Pues la verdad es que me parece una opción muy interesante.</Text>
+  </DaText>
+  <DaText>
+    <ID>R53</ID>
+    <Text>Vale, pues le echo un vistazo y me lo pienso. Ya volveré. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>61</ID>
+    <Text>Pues si le convence, le voy sacando su módem para que lo vea y se lo podrá llevar en este mismo instante...</Text>
+  </DaText>
+  <DaText>
+    <ID>62</ID>
+    <Text>Entonces le hago la factura y se lo lleva, ¿no?</Text>
+  </DaText>
+  <DaText>
+    <ID>63</ID>
+    <Text>Pues aquí tiene entonces su módem...</Text>
+  </DaText>
+  <DaText>
+    <ID>R61</ID>
+    <Text>Vale, me parece perfecto. Muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R62</ID>
+    <Text>Sí, me lo llevo. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R63</ID>
+    <Text>Espere, espere. Me gusta la oferta pero mejor me lo voy a pensar y vuelvo en unos días. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>71</ID>
+    <Text>Espero que lo disfrute. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>72</ID>
+    <Text>Le preparo por lo tanto la caja para que se la lleve. Por lo que he visto le interesa mucho leer su email. ¿Le interesaría poder hacerlo desde el teléfono móvil?</Text>
+  </DaText>
+  <DaText>
+    <ID>73</ID>
+    <Text>Vale, aquí tiene. Por cierto, me ha comentado antes que Movistar le parecía un poco cara. ¿Qué consumo de voz tiene habitualmente?</Text>
+  </DaText>
+  <DaText>
+    <ID>R71</ID>
+    <Text>Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>R72A</ID>
+    <Text>¿Es posible ver el correo directamente, sin conectarse a Internet?</Text>
+  </DaText>
+  <DaText>
+    <ID>R72B</ID>
+    <Text>Mire tengo prisa, ya me acerco en otro momento.</Text>
+  </DaText>
+  <DaText>
+    <ID>R73A</ID>
+    <Text>Pues unos 50€</Text>
+  </DaText>
+  <DaText>
+    <ID>R73B</ID>
+    <Text>Mire tengo prisa, ya me acerco en otro momento.</Text>
+  </DaText>
+  <DaText>
+    <ID>81</ID>
+    <Text>Bueno, va a poder conectarse siempre que quiera a una buena velocidad y a buen precio. ¿Le interesaría llevarse una Solución de Correo?</Text>
+  </DaText>
+  <DaText>
+    <ID>82</ID>
+    <Text>Sí, existen varias tarifas. ¿De qué terminal dispone?</Text>
+  </DaText>
+  <DaText>
+    <ID>83</ID>
+    <Text>Sí que se puede. ¿Desea contratar el servicio?</Text>
+  </DaText>
+  <DaText>
+    <ID>84</ID>
+    <Text>¿Y a qué hora suele realizar llamadas?</Text>
+  </DaText>
+  <DaText>
+    <ID>85</ID>
+    <Text>Eso es mucho. ¿Qué hace para gastar tanto?</Text>
+  </DaText>
+  <DaText>
+    <ID>86</ID>
+    <Text>Pues con Vodafone podrá ahorrarse dinero en su factura mensual de voz.</Text>
+  </DaText>
+  <DaText>
+    <ID>R81</ID>
+    <Text>Bueno, me lo voy a pensar y a comparar con otras cosas. Muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R82</ID>
+    <Text>Ahora mismo tengo un nokia con Movistar como le comenté antes. La verdad es que es un poco antiguo y me gustaría comprar uno más moderno, con buena pantalla, mp3, WiFi…</Text>
+  </DaText>
+  <DaText>
+    <ID>R83</ID>
+    <Text>No, no, gracias pero por ahora no. ¡Hasta luego!</Text>
+  </DaText>
+  <DaText>
+    <ID>R84</ID>
+    <Text>A cualquier hora.</Text>
+  </DaText>
+  <DaText>
+    <ID>R85</ID>
+    <Text>Hablo lo que necesito. Bueno, muchas gracias por todo. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>R86</ID>
+    <Text>Vale pero cuénteme. Qué tarifas tiene que me puedan ser útiles.</Text>
+  </DaText>
+  <DaText>
+    <ID>91</ID>
+    <Text>¿Cuántas cuentas de correo le gustaría consultar?</Text>
+  </DaText>
+  <DaText>
+    <ID>92</ID>
+    <Text>Pues sí que es antiguo sí. ¿Desea comprar uno nuevo y pasarse a Vodafone?</Text>
+  </DaText>
+  <DaText>
+    <ID>93</ID>
+    <Text>Ahora mismo puede llevarse un buen terminal con Vodafone y activar una Solución de Correo. ¿Cuántas cuentas de correo suele consultar?</Text>
+  </DaText>
+  <DaText>
+    <ID>94</ID>
+    <Text>Con el consumo que tiene le convendría un Plan Relax 25, donde tendría un consumo mínimo de 25€ y gracias al descuento del 25% a partir de ese consumo usted pagaría sólo 43,25€</Text>
+  </DaText>
+  <DaText>
+    <ID>95</ID>
+    <Text>Con el Plan Relax 25, usted paga 25€ de consumo mínimo. Una vez que supera esos 25€ tiene un descuento del 25%</Text>
+  </DaText>
+  <DaText>
+    <ID>96</ID>
+    <Text>Puedo comentarle el Plan Relax 50, usted paga 50€ de consumo mínimo. Una vez que supera esos 50€ tiene un descuento del 50%</Text>
+  </DaText>
+  <DaText>
+    <ID>R91</ID>
+    <Text>En principio la de gmail. De hecho la consulto bastante.</Text>
+  </DaText>
+  <DaText>
+    <ID>R92</ID>
+    <Text>Bueno ahora mismo no gracias. Hasta luego.</Text>
+  </DaText>
+  <DaText>
+    <ID>R93</ID>
+    <Text>Tengo una en gmail que consulto con frecuencia.</Text>
+  </DaText>
+  <DaText>
+    <ID>R94</ID>
+    <Text>Cuénteme más sobre ese plan.</Text>
+  </DaText>
+  <DaText>
+    <ID>R95</ID>
+    <Text>Tiene buena pinta. Algo más que tenga que saber de ese plan.</Text>
+  </DaText>
+  <DaText>
+    <ID>R96</ID>
+    <Text>Me parece un consumo mínimo un poco excesivo. Mejor dejémoslo y me lo pienso.</Text>
+  </DaText>
+  <DaText>
+    <ID>101</ID>
+    <Text>Pues si se viene a Vodafone, con Vodafone Mail Plus podrá ver su correo electrónico en su móvil por 6 euros al mes. Podrá enviar hasta 3.000 emails. De todas formas, puedo ofrecerle tarifa plana por 18 euros al mes, ¡sin límites!</Text>
+  </DaText>
+  <DaText>
+    <ID>102</ID>
+    <Text>Tenemos dos planes de Soluciones de Correo, una de ellas es tarifa plana que le puede venir bien, ya que consulta con frecuencia el correo. Son 18 euros al mes sin límite.</Text>
+  </DaText>
+  <DaText>
+    <ID>103</ID>
+    <Text>Pues entonces le recomiendo Vodafone Mail Plus. Mire, en este folleto tiene más información.</Text>
+  </DaText>
+  <DaText>
+    <ID>104</ID>
+    <Text>Espere un momento que me están llamando. Vea leyendo este folleto y luego hablamos.</Text>
+  </DaText>
+  <DaText>
+    <ID>105</ID>
+    <Text>Con el Plan Relax 25 se beneficiará de un descuento del 25% en todas las llamadas, videollamadas y mensajes (SMS y MMS) nacionales una vez superados 25 euros.</Text>
+  </DaText>
+  <DaText>
+    <ID>106</ID>
+    <Text>Pues es más o menos lo que le he comentado: 25 euros de consumo mínimo mensual y un 25% de descuento una vez sobrepasado ese consumo.</Text>
+  </DaText>
+  <DaText>
+    <ID>R101R102</ID>
+    <Text>Pues sí parece interesante. Además, ¡incluye navegación! Entonces, ¿podría ponérmelo en cualquier móvil que me comprara?</Text>
+  </DaText>
+  <DaText>
+    <ID>R103</ID>
+    <Text>Vale, me informaré sobre esto y si me interesa volveré. Muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R104</ID>
+    <Text>Vale. Bueno me lo llevo mejor a casa y ya volveré.</Text>
+  </DaText>
+  <DaText>
+    <ID>R105R106</ID>
+    <Text>La verdad es que me vendría bastante bien, ya que mi consumo suele ser alto.</Text>
+  </DaText>
+  <DaText>
+    <ID>111</ID>
+    <Text>Sí. ¿Le gusta algún móvil en especial? Ahora si se viene a Vodafone tenemos teléfonos de última generación a buen precio.</Text>
+  </DaText>
+  <DaText>
+    <ID>112</ID>
+    <Text>En realidad sólo es compatible con los siguientes terminales: Nokia E65, Palm Treo, Nokia 6110 Navigator, Nokia 6120, Nokia N95, Nokia N95 8GB y Samsung I560V.</Text>
+  </DaText>
+  <DaText>
+    <ID>113</ID>
+    <Text>Sí, aunque también existe la opción de comprar una blackberry. ¿Qué le parece?</Text>
+  </DaText>
+  <DaText>
+    <ID>114</ID>
+    <Text>Pues ya que está decidido, si quiere podemos ver un teléfono y asociarlo a este Plan Relax 25.</Text>
+  </DaText>
+  <DaText>
+    <ID>115</ID>
+    <Text>Pues mire, le comento los teléfonos que salen a mejor precio y le asociamos a un Plan Relax 25.</Text>
+  </DaText>
+  <DaText>
+    <ID>116</ID>
+    <Text>Bueno, entonces le interesa ¿verdad? Vamos a ver si le parece los terminales que tenemos.</Text>
+  </DaText>
+  <DaText>
+    <ID>R111</ID>
+    <Text>La verdad es que me llama mucho el nokia n95.</Text>
+  </DaText>
+  <DaText>
+    <ID>R112</ID>
+    <Text>Pues de esos me gusta mucho el nokia n95.</Text>
+  </DaText>
+  <DaText>
+    <ID>R113</ID>
+    <Text>Pues no sé, es que no me gusta mucho la blackberry. Mire hacemos una cosa, me pienso lo del correo. Muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R114</ID>
+    <Text>Vale. A mí me gusta mucho el nokia n95.</Text>
+  </DaText>
+  <DaText>
+    <ID>R115</ID>
+    <Text>No si el precio del teléfono me da un poco igual. A mí me gusta mucho el nokia n95.</Text>
+  </DaText>
+  <DaText>
+    <ID>R116</ID>
+    <Text>Vale, he visto el nokia n95, ese me gusta mucho.</Text>
+  </DaText>
+  <DaText>
+    <ID>121</ID>
+    <Text>Pues en ese terminal podría visualizar los emails de una manera muy cómoda por su gran pantalla. Además, trae conexión WiFi…¿quiere que le haga una demostración para que experimente?</Text>
+  </DaText>
+  <DaText>
+    <ID>122</ID>
+    <Text>Es un móvil muy avanzado, encaja a la perfección con lo que usted pide. S quiere se lo enseño y si le convence la oferta se lo puede llevar en este mismo momento.</Text>
+  </DaText>
+  <DaText>
+    <ID>123</ID>
+    <Text>Es un gran terminal. Aquí tiene. ¿Se lo lleva ya?</Text>
+  </DaText>
+  <DaText>
+    <ID>124</ID>
+    <Text>Ahora mismo no dispongo de ese terminal. Lo siento. ¿De todas formas podemos ver un Nokia 6110 Navigator, ¿le interesa?</Text>
+  </DaText>
+  <DaText>
+    <ID>R121</ID>
+    <Text>Sí. Me encantaría... La verdad es que me ha gustado mucho. Entonces 18 euros al mes y tarifa plana de correo electrónico.</Text>
+  </DaText>
+  <DaText>
+    <ID>R122</ID>
+    <Text>Pues la verdad es que sí me gusta, creo que me lo voy a llevar. El móvil me gusta mucho.</Text>
+  </DaText>
+  <DaText>
+    <ID>R123</ID>
+    <Text>Bueno mejor no, por ahora no, muchas gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R124</ID>
+    <Text>Bueno es que a mí lo del gps no me llama tanto. Mire hacemos una cosa, me lo pienso y si me decido vuelvo. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>131</ID>
+    <Text>Sí. Es un servicio muy cómodo y económico, ¿verdad?</Text>
+  </DaText>
+  <DaText>
+    <ID>132</ID>
+    <Text>Exactamente. Además con este servicio ganaría mucho en comodidad. ¿Le interesa entonces?</Text>
+  </DaText>
+  <DaText>
+    <ID>133</ID>
+    <Text>Sí, eso es. Aunque si cree que es un poco caro podemos contemplar la opción de 6 euros con la opción de enviar hasta 3000 emails.</Text>
+  </DaText>
+  <DaText>
+    <ID>134</ID>
+    <Text>Vale. Entonces le voy dando el terminal y activamos el plan, ¿no?</Text>
+  </DaText>
+  <DaText>
+    <ID>135</ID>
+    <Text>Le convencen el teléfono y la tarifa ¿verdad?, le van a venir muy bien. ¿Le voy sacando el teléfono?</Text>
+  </DaText>
+  <DaText>
+    <ID>136</ID>
+    <Text>Entonces le convencen, ¿verdad? Una cosa, ¿ha pensado en el Plan Relax 50 como mejor opción? ¡A partir de 50€ de consumo tiene un 50% de descuento!</Text>
+  </DaText>
+  <DaText>
+    <ID>R131</ID>
+    <Text>La verdad es que sí. Si pudiera activármelo me llevo el teléfono con este servicio.</Text>
+  </DaText>
+  <DaText>
+    <ID>R132</ID>
+    <Text>Sí. Me llevo el n95 y si puede actíveme la solución de correo.</Text>
+  </DaText>
+  <DaText>
+    <ID>R133</ID>
+    <Text>Yá, tendría que calcular más o menos lo que voy a utilizar. Mire, lo pienso y cuando me decida vuelvo, ¿vale?</Text>
+  </DaText>
+  <DaText>
+    <ID>R134</ID>
+    <Text>Sí, perfecto.</Text>
+  </DaText>
+  <DaText>
+    <ID>R135</ID>
+    <Text>Sí, gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>R136</ID>
+    <Text>Uff, no sé. Vamos a hacer una cosa, como conozco los precios, me lo pienso y si eso vuelvo.</Text>
+  </DaText>
+  <DaText>
+    <ID>143</ID>
+    <Text>¿Desea conocer antes de irse la tarifa Vitamina 60x1?</Text>
+  </DaText>
+  <DaText>
+    <ID>R143</ID>
+    <Text>No por favor, no quiero gastar más dinero hoy. Adiós.</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionA</ID>
+    <Text>Me parece que la velocidad es un poco limitada...</Text>
+  </DaText>
+  <DaText>
+    <ID>OA1</ID>
+    <Text>La velocidad es muy cercana a la del ADSL residencial. Además, si no va a descargar muchos archivos es más que suficiente para consultas en Internet.</Text>
+  </DaText>
+  <DaText>
+    <ID>OA2</ID>
+    <Text>Para nada, es una velocidad muy elevada, mucho más que la ofrecida por otros operadores.</Text>
+  </DaText>
+  <DaText>
+    <ID>OA3</ID>
+    <Text>Con esa velocidad usted va a poder realizar cualquier gestión desde Internet, desde descargas a consultas de correo, casi sin notarlo.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROA2</ID>
+    <Text>Vale, pues le echo un vistazo y me lo pienso. Ya volveré. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROA3</ID>
+    <Text>Vale, pues le echo un vistazo y me lo pienso. Ya volveré. Gracias.</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionB</ID>
+    <Text>Y cómo se instala exactamente. Tiene pinta de ser complicado, ¿no?</Text>
+  </DaText>
+  <DaText>
+    <ID>OB1</ID>
+    <Text>No se preocupe por ello. Tiene un manual de instrucciones muy sencillo, ya verá .</Text>
+  </DaText>
+  <DaText>
+    <ID>OB2</ID>
+    <Text>Es más sencillo de lo que parece. El ordenador le reconocerá automáticamente el módem al conectarlo, lo instalará, y finalmente con un PIN accederá a Internet.</Text>
+  </DaText>
+  <DaText>
+    <ID>OB3</ID>
+    <Text>Básicamente lo que usted debe hacer es conectar el módem a su ordenador y a partir de ahí funcionará casi sin hacer nada. Podrá acceder a Internet desde cualquier sitio.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROB1</ID>
+    <Text>Bueno pues investigaré y cuando me decida volveré.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROB3</ID>
+    <Text>Ya, pero a mí eso de que funciona sólo no me convence. Me informaré un poco más y cuando me decida volveré.</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionC</ID>
+    <Text>De todas formas es que me parece un poco caro.</Text>
+  </DaText>
+  <DaText>
+    <ID>OC1</ID>
+    <Text>¿Le parece caro 18€ al mes con tarifa plana? Yo creo que es muy barato.</Text>
+  </DaText>
+  <DaText>
+    <ID>OC2</ID>
+    <Text>El precio es razonable teniendo en cuenta que no tiene límites y además podrá navegar por Internet. Incluso podrás configurar hasta 10 cuentas.</Text>
+  </DaText>
+  <DaText>
+    <ID>OC3</ID>
+    <Text>Es un precio muy aceptable, tampoco le suponen tanto 18€ al mes y podrá acceder al correo siempre que quiera.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROC1</ID>
+    <Text>A mi me sigue pareciendo caro. Creo que no voy a activar este servicio.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROC3</ID>
+    <Text>Bueno, en realidad 18€ me sigue pareciendo caro, no me convence.</Text>
+  </DaText>
+  <DaText>
+    <ID>inicio1TXT</ID>
+    <Text>...</Text>
+  </DaText>
+  <DaText>
+    <ID>Inicio2TXT</ID>
+    <Text>...</Text>
+  </DaText>
+  <DaText>
+    <ID>F23</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, hay que seguir preguntando para detectar necesidades.</Text>
+  </DaText>
+  <DaText>
+    <ID>F53</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, da sensación de dejadez y desconocimiento por parte del comercial.</Text>
+  </DaText>
+  <DaText>
+    <ID>F63</ID>
+    <Text>Demasiado directo, intenta asegurarte un poco más de que quiere comprar, recibir una confirmación de su parte para que no sea una situación tan brusca.</Text>
+  </DaText>
+  <DaText>
+    <ID>F83</ID>
+    <Text>No seas tan directo, primero hay que detectar necesidades para impulsar la argumentación.</Text>
+  </DaText>
+  <DaText>
+    <ID>F85</ID>
+    <Text>No seas crítico con la actitud hacia el gasto del cliente. Es mejor ser asertivo a intentar ofrecerle lo que más le convenga.</Text>
+  </DaText>
+  <DaText>
+    <ID>F92</ID>
+    <Text>¡No valores el terminal del cliente! Le producirás una reacción negativa. Ofrécele alternativas.</Text>
+  </DaText>
+  <DaText>
+    <ID>F96</ID>
+    <Text>Buen intento pero no es el plan adecuado. Es una tarifa demasiado cara para este cliente.</Text>
+  </DaText>
+  <DaText>
+    <ID>F103</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, da sensación de dejadez y desconocimiento por parte del comercial.</Text>
+  </DaText>
+  <DaText>
+    <ID>F113</ID>
+    <Text>No es la oferta adecuada por que no cumple con los requerimientos del cliente en cuanto a terminal y necesidades de correo. ¡Has detectado bien las necesidades pero no has argumentado el producto adecuado!</Text>
+  </DaText>
+  <DaText>
+    <ID>F123</ID>
+    <Text>No seas tan directo, primero hay que detectar necesidades para impulsar la argumentación.</Text>
+  </DaText>
+  <DaText>
+    <ID>F124</ID>
+    <Text>No seas tan directo, primero hay que detectar necesidades para impulsar la argumentación.</Text>
+  </DaText>
+  <DaText>
+    <ID>F133</ID>
+    <Text>¡Tenías el producto casi vendido! Cuando estás tan cerca de cerrar no plantees otras posibilidades que no necesita.</Text>
+  </DaText>
+  <DaText>
+    <ID>F143</ID>
+    <Text>Ten cuidado, esta tarifa no la necesita el cliente. Si quieres detectar necesidades relacionadas con otros productos, como ya le has vendido otros, hay que preguntar con delicadeza.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOA2</ID>
+    <Text>¡No te opongas a la opinión del cliente tan bruscamente! Es mejor argumentarle qué va a poder hacer con las características del producto ofrecido.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOA3</ID>
+    <Text>No has aportado valor, se más específico, explícale los beneficios.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOB1</ID>
+    <Text>No le has resuelto la duda, lo has dejado en sus manos y has mostrado falta de conocimiento. ¡Tenlo en cuenta la próxima vez!</Text>
+  </DaText>
+  <DaText>
+    <ID>FOB3</ID>
+    <Text>¡No le has explicado como se instala!</Text>
+  </DaText>
+  <DaText>
+    <ID>FOC1</ID>
+    <Text>No discutas con el cliente, explícale los beneficios de esta tarifa y porqué ese precio, aún pareciéndole caro al principio, le puede ofrecer múltiples funcionalidades. Intenta aplicarlo la próxima vez.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOC3</ID>
+    <Text>No valores si le suponen mucho o no, eso no lo sabes. Recuerda, salva las objeciones apoyándote en los beneficios, en lo que el cliente va a poder hacer con esa tarifa.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOD2</ID>
+    <Text>No tiene nada que ver una cosa con la otra. En este caso deberías solventar la objeción en cuanto a consumo mínimo apoyándote en lo que el cliente consume actualmente.</Text>
+  </DaText>
+  <DaText>
+    <ID>FOD3</ID>
+    <Text>En estos casos deberías solventar las objeciones profundizando algo más en la tarifa, ¡explícale porqué le va a salir más rentable! Ponle un ejemplo si hace falta.</Text>
+  </DaText>
+  <DaText>
+    <ID>F71</ID>
+    <Text>Enhorabuena, has conseguido vender el producto. Sin embargo, deberías intentar venta cruzada y continuar detectando necesidades.</Text>
+  </DaText>
+  <DaText>
+    <ID>F141</ID>
+    <Text>Enhorabuena, has conseguido vender el producto. Sin embargo, podrías haber seguido detectando necesidades. Recuerda, hay que intentar la venta cruzada.</Text>
+  </DaText>
+  <DaText>
+    <ID>F81</ID>
+    <Text>No seas tan directo, primero hay que detectar necesidades para impulsar la argumentación.</Text>
+  </DaText>
+  <DaText>
+    <ID>F72B</ID>
+    <Text>¿Qué ha pasado si has vendido? Para poder hacer venta cruzada es importante que el cliente quede satisfecho y convencido de los beneficios que se lleva.</Text>
+  </DaText>
+  <DaText>
+    <ID>F73B</ID>
+    <Text>¿Qué ha pasado si has vendido? Para poder hacer venta cruzada es importante que el cliente quede satisfecho y convencido de los beneficios que se lleva.</Text>
+  </DaText>
+  <DaText>
+    <ID>ObjecionD</ID>
+    <Text>Me parece un poco excesivo el mínimo mensual.</Text>
+  </DaText>
+  <DaText>
+    <ID>OD1</ID>
+    <Text>Bueno, tenga en cuenta que lo va a superar todos los meses, con lo cual este plan lo va a suponer un ahorro en todo gasto que esté por encima del consumo mínimo.</Text>
+  </DaText>
+  <DaText>
+    <ID>OD2</ID>
+    <Text>Es un consumo mínimo bastante baj0 teniendo en cuenta el descuento posterior.</Text>
+  </DaText>
+  <DaText>
+    <ID>OD3</ID>
+    <Text>A mi me parece un precio razonable y teniendo en cuenta el gasto tan elevado que tiene al final le saldrá rentable, hágame caso.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROD2</ID>
+    <Text>Pero el consumo mínimo sigue siendo alto. No me gusta este plan.</Text>
+  </DaText>
+  <DaText>
+    <ID>ROD3</ID>
+    <Text>Bueno no sé, no me gusta estar obligado a un gasto mínimo tan elevado. Me lo pensaré.</Text>
+  </DaText>
+  <DaText>
+    <ID>F13</ID>
+    <Text>Intenta ser más proactivo en el contacto. ¡Ofrece tu ayuda y disponibilidad!</Text>
+  </DaText>
+  <DaText>
+    <ID>F33</ID>
+    <Text>Intenta seguir obteniendo información, ¡se más explícito!</Text>
+  </DaText>
+  <DaText>
+    <ID>F43</ID>
+    <Text>Demasiado directo, intenta explicar un poco más el producto y sobre todo las ventajas y beneficios.</Text>
+  </DaText>
+  <DaText>
+    <ID>F62</ID>
+    <Text>Has vendido pero el cliente no ha quedado convencido del todo. Has sido demasiado directo en el cierre, intenta resaltarle los beneficios que se lleva para que no piense que les has “colado” el producto.</Text>
+  </DaText>
+  <DaText>
+    <ID>F104</ID>
+    <Text>Es mejor explicar personalmente los productos. La entrega de folleto en este caso no es buena opción, da sensación de dejadez y desconocimiento por parte del comercial.</Text>
+  </DaText>
+  <DaText>
+    <ID>F136</ID>
+    <Text>¡Tenías el producto casi vendido! Cuando estás tan cerca de cerrar no plantees otras posibilidades que no necesita.</Text>
+  </DaText>
+  <AssetPath>Assets/Ejecutivo</AssetPath>
+</Level>

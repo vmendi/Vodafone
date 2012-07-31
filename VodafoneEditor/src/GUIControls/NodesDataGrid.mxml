@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommonDataGrid xmlns="GUIControls.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	dragEnabled="true"
+	dragMoveEnabled="false" 
+	draggableColumns="false"
+	change="OnSelectedChange(event)"
+	allowDragSelection="false"
+	>
+    <columns>
+     	<mx:DataGridColumn headerText="Nombre" dataField="Name" width="100"/>
+        <mx:DataGridColumn headerText="Pregunta" dataField="Question" width="400"/>
+        <mx:DataGridColumn headerText="EnterMovieClip" dataField="EnterMovieClipName" width="200"/>
+        <mx:DataGridColumn headerText="IdleMovieClip" dataField="IdleMovieClipName" width="200"/>
+    </columns>
+    
+    <mx:Script>
+    <![CDATA[
+    	import mx.events.IndexChangedEvent;
+    	import mx.events.ListEvent;
+        import mx.events.DragEvent;
+    	import mx.collections.ArrayCollection;
+        import mx.controls.Menu;
+        
+                
+        protected override function DropOnRollOver(event : DragEvent, lastRollOver : Object) : void
+        {
+   		    var itemsArray:Array = event.dragSource.dataForFormat("items") as Array;
+   		    
+   		    if (itemsArray[0].hasOwnProperty("FileName"))
+   		    {
+	        	var fileName : String = itemsArray[0].FileName;
+    	    	
+        		trace(fileName);
+        		
+        		var dropOnObjectIdx : int = this.indicesToIndex(lastRollOver.rowIndex, lastRollOver.columnIndex);
+				var daField : String = this.columns[lastRollOver.columnIndex].dataField;
+				
+				trace(dropOnObjectIdx + " " + daField);
+			
+				mLevelModel.Nodes[dropOnObjectIdx][daField] = fileName;
+        	}
+        	else
+        	if (itemsArray[0].hasOwnProperty("ID"))
+        	{
+        		var id : String = itemsArray[0].ID;
+        		var idxToDrop : int = lastRollOver.rowIndex;
+        		
+        		mLevelModel.Nodes[idxToDrop].Question = id;
+        	}
+        }
+                
+        protected override function CreateMenuItems() : void
+        {
+        	var cmi:ContextMenuItem = new ContextMenuItem("Crear nodo...", false, true, true);
+            mContextMenu.customItems.push(cmi);
+            
+            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, CrearSelected);
+            
+            cmi = new ContextMenuItem("Borrar nodo", false, true, true);
+            mContextMenu.customItems.push(cmi);
+            
+            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, BorrarSelected);
+        }
+        
+        private function CrearSelected(event:ContextMenuEvent) : void
+        {
+        	mLevelModel.AddNode("Default Name");       		
+        }
+        
+        private function BorrarSelected(event:ContextMenuEvent) : void
+        {
+        	if (selectedItem != null)
+        	{
+        		mLevelModel.RemoveNode(selectedItem);
+        		dispatchEvent(new Event("NodoSeleccionado"));
+        	}
+        }
+        
+        private function OnSelectedChange(event:Event) : void
+        {
+        	if (!mSupressSelectionChange)
+        		dispatchEvent(new Event("NodoSeleccionado"));
+        }
+        
+        protected override function RefreshSelection():void
+        {
+        	dispatchEvent(new Event("NodoSeleccionado"));
+        }
+  	]]>
+  	
+  	</mx:Script>
+    
+</CommonDataGrid>

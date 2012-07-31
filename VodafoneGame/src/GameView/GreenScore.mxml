@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			
+			public function set Chico(v : Boolean) : void
+			{
+				if (v)
+				{
+					mMarcadorVerde.mcCaraChica.visible = false;
+					mMarcadorVerde.mcCaraChico.visible = true;	
+					
+					mCurrentChico = mMarcadorVerde.mcCaraChico;
+				}
+				else
+				{
+					mMarcadorVerde.mcCaraChica.visible = true;
+					mMarcadorVerde.mcCaraChico.visible = false;
+					
+					mCurrentChico = mMarcadorVerde.mcCaraChica;
+				}
+			}
+			
+			public function CreateGUI(pathToCharacter : String):void
+			{
+				mMarcadorVerde = new (getDefinitionByName("mcMarcador") as Class);
+
+				var uiComp : UIComponent = new UIComponent();
+				uiComp.addChild(mMarcadorVerde);
+				addChild(uiComp);
+				
+				this.width = mMarcadorVerde.width;
+				this.height = mMarcadorVerde.height;
+				
+				if (pathToCharacter.indexOf("Chica") != -1)
+				{
+					mMarcadorVerde.mcCaraCliente.gotoAndStop("chica");
+				}
+				else
+				if (pathToCharacter.indexOf("Tekki") != -1)
+				{
+					mMarcadorVerde.mcCaraCliente.gotoAndStop("tekkie");
+				}
+				else
+				if (pathToCharacter.indexOf("Ejecutivo") != -1)
+				{
+					mMarcadorVerde.mcCaraCliente.gotoAndStop("ejecutivo");
+				}
+				else
+				if (pathToCharacter.indexOf("Senora") != -1)
+				{
+					mMarcadorVerde.mcCaraCliente.gotoAndStop("senora");
+				}
+				else
+				if (pathToCharacter.indexOf("Extranjero") != -1)
+				{
+					mMarcadorVerde.mcCaraCliente.gotoAndStop("extranjero");
+				}
+				
+				SetPercent(50.0);
+			}
+						
+			public function SetPercent(percent : Number) : void
+			{
+				var mcBarraVerde : DisplayObject = (mMarcadorVerde.mcBarraVerde as DisplayObject); 
+				mcBarraVerde.scaleX = percent / 100.0;
+				if (Math.abs(mLastPercent - percent) > 0.9)
+				{
+					if ((mLastPercent - percent) < 0)
+					{
+						mMarcadorVerde.mcEstrellas.x = mcBarraVerde.width + 70.0;
+						mMarcadorVerde.mcEstrellas.gotoAndPlay(2);
+					}
+					else
+					{
+						mMarcadorVerde.mcHumos.x = mcBarraVerde.width + 70.0;
+						mMarcadorVerde.mcHumos.gotoAndPlay(2);
+					}
+				}
+				
+				if (mCurrentChico != null)
+				{
+					if (percent < 33)
+						mCurrentChico.gotoAndStop(1);
+					else
+					if (percent < 66)
+						mCurrentChico.gotoAndStop(2);
+					else
+						mCurrentChico.gotoAndStop(3);
+				}
+					
+				mLastPercent = percent;
+			}
+			
+			private var mCurrentChico : MovieClip;
+			private var mLastPercent : Number;
+			private var mMarcadorVerde : MovieClip;
+		]]>
+	</mx:Script>
+</mx:Canvas>

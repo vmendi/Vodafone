@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="730" height="243">
+	<mx:Panel x="0" y="0" width="730" height="243" layout="absolute" title="Consola de Depurado:">
+		<mx:Panel x="-1" y="0" width="353" height="203" layout="absolute" title="Estado Personaje:" dropShadowEnabled="false">
+			<mx:TextArea id="myPersonajeArea" x="0" y="0" width="333" height="163"/>
+		</mx:Panel>
+		<mx:Panel x="351" y="0" width="359" height="203" layout="absolute" title="Log:" dropShadowEnabled="false">
+			<mx:TextArea id="myDebugArea" x="0" y="0" width="339" height="163"/>
+		</mx:Panel>	
+	</mx:Panel>
+			
+</mx:Canvas>

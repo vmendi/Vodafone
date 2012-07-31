@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="1024" height="1000" 
+	creationComplete="OnApplicationCreationComplete()"
+	windowComplete="OnShow()"
+	closing="OnClosing()"
+	windowMove="OnMove()"
+	xmlns:gui="GUIControls.*"
+	title="Vodafone - {mLevelModel.CurrentLevel}"
+	windowActivate="OnWindowActivate()"
+	frameRate="30">
+    
+	<gui:TopMenuBar id="myMainMenuBar" width="805" left="0" right="0" LevelModel="{mLevelModel}" />
+      
+	<mx:Button x="46" y="30" label="Textos" click="OnTextsButtonClick();" width="77" height="33"/>
+    <mx:Button x="131" y="30" label="Recursos" click="OnAssetsButtonClick();" width="77" height="33"/>
+    <mx:Button x="215" y="30" label="Juego" click="OnGameButtonClick();" width="77" height="33"/>
+
+    <mx:Script>
+    <![CDATA[
+    	import mx.controls.Alert;   	
+    	import mx.binding.utils.BindingUtils;
+    	import mx.core.Window;
+    	import mx.collections.ArrayCollection;                        
+        import flash.utils.*;
+        import EditorUtils.*;
+        import Model.*;
+        import Controller.*;
+        import GUIControls.*;
+
+        [Bindable]
+        private var mLevelModel : LevelModel = new LevelModel();
+        
+        private var mAssetsWindow : AssetsWindow = null;
+        private var mGameWindow : GameWindow = null;
+        private var mTextsWindow : TextsWindow = null;
+        
+        
+        public function BringAllToFront():void
+        {
+        	var numWindows : int = NativeApplication.nativeApplication.openedWindows.length;
+        	for (var c : int = 0; c < numWindows; c++)
+        	{
+        		NativeApplication.nativeApplication.openedWindows[c].orderToFront();
+        	}
+        	this.orderToFront();
+        }
+        
+        private function OnWindowActivate():void
+        {
+        	BringAllToFront();
+        	orderToFront();
+        }
+
+        
+        private function OnApplicationCreationComplete() : void
+        {
+        	myNodes.addEventListener("NodoSeleccionado", UpdateView);
+        	myAnswers.addEventListener("RespuestaSeleccionada", OnAnswerSelectedChange);
+        	mLevelModel.addEventListener("LevelLoaded", OnLevelLoaded);
+        	mLevelModel.addEventListener("LevelError", OnLevelError);
+        	mLevelModel.addEventListener("CurrentLevelChanged", OnCurrentLevelChanged);
+        	
+        	BindingUtils.bindSetter(OnScriptChanged, myScriptText, "text");
+        	BindingUtils.bindSetter(OnConditionChanged, myConditionText, "text");
+        	BindingUtils.bindSetter(OnOnEnterChanged, myOnEnterText, "text");
+ 
+            EditorUtils.Config.GetInstance().Create();
+            
+            if (EditorUtils.Config.GetInstance().HasKey("LastOpened"))
+            {
+            	var lastOpened : String = EditorUtils.Config.GetInstance().ReadValue("LastOpened");
+           		mLevelModel.LoadLevel(lastOpened); 
+            }
+            
+            OnAssetsButtonClick();
+            OnTextsButtonClick();
+        }
+        
+       private function OnShow() : void
+       {
+       		EditorUtils.WindowUtils.OnShow("MainWindow", this.nativeWindow);
+       }
+       
+       private function OnMove() : void
+       {
+       		EditorUtils.WindowUtils.OnMove("MainWindow", this.nativeWindow);	
+       }
+       
+       private function OnClosing() : void
+       {
+       		// Si cierran la ventana principal, salimos
+       		NativeApplication.nativeApplication.exit();
+       }
+        
+        private function OnLevelLoaded(event:Event):void
+        {	
+        	UpdateView(event);
+        }
+        
+        private function OnLevelError(event:IOErrorEvent):void
+        {
+        	mx.controls.Alert.show(event.text, "Error cargando", mx.controls.Alert.OK);
+        }
+        
+        private function OnCurrentLevelChanged(event:Event):void
+        {
+       		EditorUtils.Config.GetInstance().WriteValue("LastOpened", mLevelModel.CurrentLevel);	
+        }
+                
+        private function UpdateView(event:Event):void
+        {
+        	var select : Object = myNodes.selectedItem;
+        	
+        	if (select != null)
+        	{
+        		mLevelModel.SelectedNode = select;
+	        	myAnswers.dataProvider = select.Answers;
+	        	myOnEnterText.text = select.OnEnterCode;
+	        	myAnswers.alpha = 1.0;
+	        	myOnEnterTextPanel.alpha = 1.0;
+	        	myOnEnterText.editable = true;
+	        }
+	        else
+	        {
+	        	mLevelModel.SelectedNode = null;
+	        	myAnswers.dataProvider = null;
+	        	myOnEnterText.text = "";
+	        	myAnswers.alpha = 0.5;
+	        	myOnEnterTextPanel.alpha = 0.5;
+	        	myOnEnterText.editable = false;
+	        }
+	        myScriptTextPanel.alpha = 0.5;
+	        myConditionTextPanel.alpha = 0.5;
+	        
+	        myScriptText.editable = false;
+	        myConditionText.editable = false;
+	        myScriptText.text = "";
+	        myConditionText.text = "";
+        }
+        
+        private function OnAnswerSelectedChange(event:Event) : void
+        {
+        	var select : Object = myAnswers.selectedItem;
+        	
+        	if (select != null)
+        	{
+	        	myScriptText.text = select.ExecuteCode;
+	        	myConditionText.text = select.ConditionCode;
+	        	myScriptText.editable = true;
+	        	myConditionText.editable = true;
+	        	myScriptTextPanel.alpha = 1.0;
+	        	myConditionTextPanel.alpha = 1.0;
+	        }
+	        else
+	        {
+	        	myScriptText.text = "";
+	        	myConditionText.text = "";
+	        	myScriptText.editable = false;
+	        	myConditionText.editable = false;
+	        	myScriptTextPanel.alpha = 0.5;
+	        	myConditionTextPanel.alpha = 0.5;
+	        }
+        }
+        
+        private function OnScriptChanged(str : String) : void
+        {
+        	if (myAnswers.selectedItem != null)
+        	{
+        		myAnswers.selectedItem.ExecuteCode = myScriptText.text;
+        		
+        		// Comprobación de que el código es válido
+        		if (!GameController.IsValidCode(myAnswers.selectedItem.ExecuteCode))
+        			myScriptWarningIcon.visible = true;
+        		else
+        			myScriptWarningIcon.visible = false;
+        	}
+        	else
+        	{
+        		myScriptWarningIcon.visible = false;
+        	}
+        }
+        
+        private function OnConditionChanged(str : String) : void
+        {
+        	if (myAnswers.selectedItem != null)
+        	{
+        		myAnswers.selectedItem.ConditionCode = myConditionText.text;
+        		
+        		// Comprobación de que el código es válido
+        		if (!GameController.IsValidCode(myAnswers.selectedItem.ConditionCode))
+        			myConditionWarningIcon.visible = true;
+        		else
+        			myConditionWarningIcon.visible = false;
+        	}
+        	else
+        	{
+        		myConditionWarningIcon.visible = false;
+        	}
+        }
+        
+        private function OnOnEnterChanged(str : String) : void
+        {
+        	if (myNodes.selectedItem != null)
+        	{
+        		myNodes.selectedItem.OnEnterCode = myOnEnterText.text;
+        		
+        		// Comprobación de que el código es válido
+        		if (!GameController.IsValidCode(myNodes.selectedItem.OnEnterCode))
+        			myOnEnterWarningIcon.visible = true;
+        		else
+        			myOnEnterWarningIcon.visible = false;
+        	}
+        	else
+        	{
+        		myOnEnterWarningIcon.visible = false;
+        	}
+        }
+                
+        private function OnAssetsButtonClick() : void
+		{
+			if (mAssetsWindow == null)
+			{
+				mAssetsWindow = new AssetsWindow();
+				mAssetsWindow.LevelModel = mLevelModel;
+				mAssetsWindow.addEventListener(Event.CLOSE, OnAssetsWindowClose, false, 0, true);
+				mAssetsWindow.open(true);
+			}		
+		}
+		
+		private function OnAssetsWindowClose(event:Event):void
+		{
+			mAssetsWindow = null;
+		}
+		
+		private function OnGameButtonClick() : void
+		{
+			if (mGameWindow == null)
+			{
+				mGameWindow = new GameWindow();
+				mGameWindow.LevelModel = mLevelModel;
+				mGameWindow.addEventListener(Event.CLOSE, OnGameWindowClose, false, 0, true);
+				mGameWindow.open(true);
+			}
+		}
+		
+		private function OnGameWindowClose(event:Event):void
+		{
+			mGameWindow = null;
+		}
+		
+		private function OnTextsButtonClick() : void
+		{
+			if (mTextsWindow == null)
+			{
+				mTextsWindow = new TextsWindow();
+				mTextsWindow.LevelModel = mLevelModel;
+				mTextsWindow.addEventListener(Event.CLOSE, OnTextsWindowClose, false, 0, true);
+				mTextsWindow.open(true);
+			}
+		}
+		
+		private function OnTextsWindowClose(event:Event):void
+		{
+			mTextsWindow = null;
+		}
+	
+    ]]>
+    </mx:Script>
+    
+    
+    <mx:VDividedBox y="71" height="100%" right="0" left="0" dropShadowEnabled="false">
+        <gui:NodesDataGrid id="myNodes" width="100%" height="100%"
+        	right="0" left="0" 
+        	dataProvider="{mLevelModel.Nodes}" LevelModel="{mLevelModel}" />        
+        <gui:AnswersDataGrid id="myAnswers" x="0" y="690" width="100%" height="120" LevelModel="{mLevelModel}" alpha="0.3"/>
+        
+        <mx:HDividedBox x="0" y="814" width="100%" height="150">
+        <!--<mx:HBox x="0" y="814" width="100%" height="150">-->
+	        <mx:Panel id="myOnEnterTextPanel" width="33%" height="100%" layout="absolute" title="Entrada" horizontalScrollPolicy="off" verticalScrollPolicy="off" dropShadowEnabled="false" alpha="0.5">
+	        	<mx:TextArea id="myOnEnterText" x="0" y="0" width="100%" height="100%"/>
+	        	<mx:Image x="245" right="1" y="1" source="@Embed(source='WarningIcon.jpg')" id="myOnEnterWarningIcon" visible="false"/>
+	        </mx:Panel>
+	        <mx:Panel id="myConditionTextPanel" y="0" width="33%" height="100%" layout="absolute" title="Condición de visibilidad" horizontalScrollPolicy="off" verticalScrollPolicy="off" dropShadowEnabled="false" alpha="0.5" x="342.5">
+	    		<mx:TextArea id="myConditionText" x="0" y="0" width="100%" height="100%"/>
+	    		<mx:Image x="245" right="1" y="1" source="@Embed(source='WarningIcon.jpg')" id="myConditionWarningIcon" visible="false"/>
+		    </mx:Panel>
+	    	<mx:Panel id="myScriptTextPanel" x="687.5" y="0" width="33%" height="100%" layout="absolute" title="Salida" horizontalScrollPolicy="off" verticalScrollPolicy="off" dropShadowEnabled="false" alpha="0.5">
+	        	<mx:TextArea id="myScriptText" x="0" y="0" width="100%" height="100%"/>
+	        	<mx:Image x="245" right="1" y="1" source="@Embed(source='WarningIcon.jpg')" id="myScriptWarningIcon" visible="false"/>
+	    	</mx:Panel>
+    	</mx:HDividedBox>
+    </mx:VDividedBox>  
+      
+</mx:WindowedApplication>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommonDataGrid xmlns="GUIControls.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	draggableColumns="false"
+	change="OnSelectedChange(event)"
+	allowDragSelection="false"
+	>
+    <columns>
+     	<mx:DataGridColumn headerText="Nombre" dataField="Name" width="100"/>
+        <mx:DataGridColumn headerText="Descripcion" dataField="Description" width="400"/>
+        <mx:DataGridColumn headerText="Nombre del MovieClip" dataField="MovieClipName" width="200"/>
+    </columns>
+    
+    <mx:Script>
+    <![CDATA[
+    	import mx.events.IndexChangedEvent;
+    	import mx.events.ListEvent;
+        
+        import mx.events.DragEvent;
+    	import mx.collections.ArrayCollection;
+        import mx.controls.Menu;
+                
+        protected override function CreateMenuItems() : void
+        {
+        	var cmi:ContextMenuItem = new ContextMenuItem("Crear producto...", false, true, true);
+            mContextMenu.customItems.push(cmi);
+            
+            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, CrearSelected);
+            
+            cmi = new ContextMenuItem("Borrar producto", false, true, true);
+            mContextMenu.customItems.push(cmi);
+            
+            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, BorrarSelected);
+        }
+        
+        private function CrearSelected(event:ContextMenuEvent) : void
+        {
+        	//mLevelModel.AddNode("Default Name"); 		
+        }
+        
+        private function BorrarSelected(event:ContextMenuEvent) : void
+        {
+        	/*
+        	if (selectedItem != null)
+        	{
+        		mLevelModel.RemoveNode(selectedItem);
+        		dispatchEvent(new Event("NodoSeleccionado"));
+        	}
+        	*/
+        }
+        
+        private function OnSelectedChange(event:Event) : void
+        {
+        	/*
+        	if (!mSupressSelectionChange)
+        		dispatchEvent(new Event("NodoSeleccionado"));
+           */
+        }
+  	]]>
+  	
+  	</mx:Script>
+    
+</CommonDataGrid>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CommonDataGrid xmlns="GUIControls.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	change="OnSelectedChange(event)"
+    >
+    <columns>
+        <mx:DataGridColumn headerText="Respuesta" dataField="Text" width="140"/>        
+        <mx:DataGridColumn headerText="Saltar a" dataField="DefaultGotoNode" width="40"/>
+        <mx:DataGridColumn headerText="Siguiente texto" dataField="CombineWith" width="60"/>
+        <mx:DataGridColumn headerText="EnterMovieClip" dataField="ExitMovieClipName" width="60"/>
+        <mx:DataGridColumn headerText="IdleMovieClip" dataField="IdleMovieClipName" width="60"/>
+        <mx:DataGridColumn headerText="+Vida" dataField="ScoreLife" width="20"/>
+    </columns>
+    
+    <mx:Script>
+    <![CDATA[
+        import mx.core.DragSource;
+    	import mx.collections.ArrayCollection;
+        import mx.controls.Menu;
+        import mx.events.DragEvent;
+
+        import Model.LevelModel;
+        
+        protected override function DropOnRollOver(dragEvent : DragEvent, lastRollOver : Object):void
+        {
+   		    var itemsArray:Array = dragEvent.dragSource.dataForFormat("items") as Array;
+   		    
+   		    if (itemsArray[0].hasOwnProperty("FileName"))
+   		    {
+	        	var fileName : String = itemsArray[0].FileName;
+    	    	        		
+        		var dropOnObjectIdx : int = this.indicesToIndex(lastRollOver.rowIndex, lastRollOver.columnIndex);
+				var daField : String = this.columns[lastRollOver.columnIndex].dataField;
+			
+				mLevelModel.SelectedNode.Answers[dropOnObjectIdx][daField] = fileName;
+        	}
+        	else
+        	if (itemsArray[0].hasOwnProperty("Name"))
+        	{
+        		var daName : String = itemsArray[0].Name;
+     			var idxToDrop : int = lastRollOver.rowIndex;
+							
+				mLevelModel.SelectedNode.Answers[idxToDrop].DefaultGotoNode = daName;
+        	}
+        	else
+        	if (itemsArray[0].hasOwnProperty("ID"))
+        	{        	
+        		dropOnObjectIdx = this.indicesToIndex(lastRollOver.rowIndex, lastRollOver.columnIndex);
+				daField = this.columns[lastRollOver.columnIndex].dataField;
+			
+        		var id : String = itemsArray[0].ID;
+        	        		        		
+        		mLevelModel.SelectedNode.Answers[dropOnObjectIdx][daField] = id;
+        	}
+        }
+       
+     	protected override function CreateMenuItems() : void
+        {
+        	var cmi:ContextMenuItem = new ContextMenuItem("Crear respuesta...", false, true, true);
+            mContextMenu.customItems.push(cmi);
+            
+            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, CrearSelected);
+            
+            cmi = new ContextMenuItem("Borrar respuesta", false, true, true);
+            mContextMenu.customItems.push(cmi);
+            
+            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, BorrarSelected);
+        }
+        
+        private function CrearSelected(event:ContextMenuEvent) : void
+        {
+        	if (mLevelModel.SelectedNode != null)
+        	{
+        		var currNum : int = mLevelModel.SelectedNode.Answers.length;
+        		var newAnswer : Object = mLevelModel.AddAnswer(mLevelModel.SelectedNode);
+        		newAnswer.Text = "Default Answer " + currNum.toString();
+        	}
+        }
+        
+        private function BorrarSelected(event:ContextMenuEvent) : void
+        {
+        	if (selectedItem != null)
+        	{
+        		mLevelModel.RemoveAnswer(mLevelModel.SelectedNode, selectedItem);
+        		dispatchEvent(new Event("RespuestaSeleccionada"));
+        	}
+        }
+        
+		private function OnSelectedChange(event:Event) : void
+        {
+        	dispatchEvent(new Event("RespuestaSeleccionada"));
+        }        
+ 
+    ]]>
+    </mx:Script>
+    
+</CommonDataGrid>

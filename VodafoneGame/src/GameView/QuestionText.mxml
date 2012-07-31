@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TextArea xmlns:mx="http://www.adobe.com/2006/mxml" fontSize="14" 
+	backgroundAlpha="0" borderThickness="0" borderStyle="none" selectable="false" mouseEnabled="false"
+	paddingTop="30" paddingBottom="15" paddingLeft="15" paddingRight="15"
+	creationComplete="OnCreationComplete()"
+	fontFamily="Arial"
+	focusEnabled="false" focusThickness="0" focusRect="false"
+	>
+
+	<mx:Script>	
+		<![CDATA[
+		
+		import flash.utils.getDefinitionByName;
+		
+		public function CreateGUI():void
+		{
+			var mensajeCliente : MovieClip = new (getDefinitionByName("mcMensajeCliente") as Class);
+			addChildAt(mensajeCliente, 0);
+			width = mensajeCliente.width;
+			height = mensajeCliente.height + 20;
+					
+			mBlipSound = new (getDefinitionByName("soundBlipMale") as Class);
+		}
+		
+		public function set ChicoCliente(v : Boolean) : void
+		{
+			if (!v)
+			{
+				mBlipSound = new (getDefinitionByName("soundBlipFemale") as Class);
+			}
+		}
+		
+		public function GetNumLineas(txt : String) : int
+		{
+			var tester : TextField = new TextField;
+			
+			tester.multiline = true;
+			tester.autoSize = TextFieldAutoSize.LEFT;
+			tester.width = this.width - 30;	// Teniendo en cuenta el padding			
+			tester.text = txt;
+			tester.wordWrap = true;
+			
+			var textFormat : TextFormat = new TextFormat();
+			textFormat.font = "Arial";
+			textFormat.size = "14";
+			tester.setTextFormat(textFormat);
+						
+			return tester.numLines;
+		}
+		
+		
+		public function SetNextQuestion(str : String) : void
+		{
+			this.text = "";
+			mCurrQuestion = str;
+			mCurrCharIdx = 0;
+			trace("Num lineas " + GetNumLineas(str));
+			
+			if (GetNumLineas(str) > 5)
+			{
+				this.setStyle("fontSize", 12);
+			}
+			else
+			{
+				this.setStyle("fontSize", 14);
+			}
+			
+			mTimer.reset();
+			mTimer.start();
+			
+			NextCharacter();
+		}
+		
+		private function OnTime(event:TimerEvent):void
+		{
+			if (!mPaused)
+				NextCharacter();
+		}
+		
+		private function NextCharacter() : void
+		{
+			// Añadimos el caracter actual
+			this.text += mCurrQuestion.charAt(mCurrCharIdx);
+			
+			// Sonido de blip, a la mitad de volumen que el resto
+			var sndTransform : SoundTransform = new SoundTransform(0.15, 0);
+			mBlipSound.play(0, 1, sndTransform);
+				
+			// Avanzamos en la cadena
+			mCurrCharIdx++;
+			
+			if (mCurrCharIdx >= mCurrQuestion.length)
+			{
+				mTimer.reset();
+				mCurrCharIdx = -1;
+				dispatchEvent(new Event("TextComplete"));
+			}
+		}
+		
+		public function Stop() : void
+		{
+			if (mTimer != null)
+			{
+				mTimer.stop();
+				mTimer = null;
+			}
+		}
+		
+		public function OnCreationComplete() : void
+		{
+			mTimer = new Timer(25);
+			mTimer.addEventListener(TimerEvent.TIMER, OnTime, false, 0, true);			
+		}
+		
+		public function set Pause(v : Boolean):void { mPaused = v; }
+		
+		private var mPaused : Boolean = false;
+		private var mBlipSound : Sound;
+		private var mTimer : Timer;
+		private var mCurrQuestion : String = "";
+		private var mCurrCharIdx : int = -1;
+		]]>
+		
+	</mx:Script>
+</mx:TextArea>

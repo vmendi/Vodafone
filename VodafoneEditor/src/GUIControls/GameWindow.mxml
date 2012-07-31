@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Window xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="740" height="820"
+	creationComplete="OnCreationComplete();"
+	windowMove="OnMove()"
+	windowComplete="OnShow()"
+	windowActivate="OnWindowActivate();"
+	close="OnWindowClose()"
+	verticalScrollPolicy="off"
+	horizontalScrollPolicy="off"
+	 xmlns:ns1="GameView.*">
+	
+	<mx:Script>
+		<![CDATA[
+	
+		import mx.core.IWindow;
+		import mx.core.Application;
+		import EditorUtils.WindowUtils;
+		import GameView.GameView;
+		import Model.*;
+		
+				
+		public function set LevelModel(val : LevelModel):void { mLevelModel = val; }
+		
+		private function OnCreationComplete() : void
+		{
+			mGameView = new GameView();
+			mGameView.LevelModel = mLevelModel;
+			addChild(mGameView);
+			
+			EditorUtils.WindowUtils.OnShow("GameWindow", nativeWindow);	
+		}
+		
+		private function OnShow() : void
+        {
+        }
+        
+        private function OnMove() : void
+        {
+     		EditorUtils.WindowUtils.OnMove("GameWindow", nativeWindow);
+        }
+       
+        private function OnWindowActivate() : void
+        {
+         	Application.application.BringAllToFront();
+        	orderInFrontOf(Application.application as IWindow);
+	    }
+	    
+	    private function OnWindowClose() : void
+	    {
+	    	if (mGameView != null)
+	    	{
+	    		removeChild(mGameView);
+	    		mGameView.StopGame();
+	    		mGameView = null;
+	    	}
+	    }
+	    
+        
+        private var mLevelModel : LevelModel;
+        private var mGameView : GameView;
+        
+		]]>
+	</mx:Script>
+	<ns1:DebugWindow id="myDebugWindow" x="0" y="546">		
+	</ns1:DebugWindow>
+	
+	
+</mx:Window>

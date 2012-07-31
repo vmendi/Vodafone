@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300"
+	creationComplete="OnCreationComplete()"
+	>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.core.UIComponent;
+			import flash.utils.getDefinitionByName;
+			
+			public function SetGameStatus(gs : GameStatus):void { mGameStatus = gs; }
+			
+			private function OnCreationComplete():void
+			{
+				mLogin = new (getDefinitionByName("mcLogin") as Class);
+				var uiComp : UIComponent = new UIComponent;
+				uiComp.addChild(mLogin);
+				addChild(uiComp);
+				
+				(mLogin.btAceptar as MovieClip).gotoAndStop("off");
+				
+				mLogin.ctNick.addEventListener("change", OnTextChanged, false, 0, true);
+				
+				mLogin.btAceptar.addEventListener(MouseEvent.CLICK, OnAceptarClick, false, 0, true);
+				mLogin.ctNick.addEventListener(MouseEvent.CLICK, OnNickClick, false, 0, true);
+				mLogin.btChico.addEventListener(MouseEvent.CLICK, OnChicoClick, false, 0, true);
+				mLogin.btChica.addEventListener(MouseEvent.CLICK, OnChicaClick, false, 0, true);
+				
+				mChicoButton = mLogin.btChico as SimpleButton;
+				mChicaButton = mLogin.btChica as SimpleButton;
+				
+				mChicoButtonUpState = mChicoButton.upState;
+				mChicaButtonUpState = mChicaButton.upState;	
+			}
+			
+			
+			private function OnTextChanged(event:Event):void
+			{
+				mNick = (event.target as TextField).text;
+				ProcessReady();
+			}
+			
+			private function OnAceptarClick(event:MouseEvent):void
+			{
+				if (mIsReady)
+				{
+					mGameStatus.Nick = mNick;
+					mGameStatus.Chico = (mSexo == "Chico");
+					
+					dispatchEvent(new Event("NickDialogComplete"));		
+				}
+			}
+			
+			private function OnNickClick(event:MouseEvent):void
+			{
+				if (mNick == "")
+					(event.target as TextField).text = "";	
+			}
+			
+			private function OnChicoClick(event:MouseEvent):void
+			{
+				mSexo = "Chico";
+				
+				mChicoButton.upState = mChicoButton.overState;
+				mChicaButton.upState = mChicaButtonUpState;
+				
+				ProcessReady();
+			}
+			
+			private function OnChicaClick(event:MouseEvent):void
+			{
+				mSexo = "Chica";
+				
+				mChicaButton.upState = mChicaButton.overState;
+				mChicoButton.upState = mChicoButtonUpState;
+				
+				ProcessReady();			 
+			}
+			
+			private function ProcessReady() : void
+			{
+				if ((mNick != "") && (mSexo != ""))
+				{
+					mIsReady = true;
+					mLogin.btAceptar.gotoAndStop("on");
+				}
+				else
+				{ 
+					mIsReady = false;
+					mLogin.btAceptar.gotoAndStop("off");
+				}			
+			}
+			
+			private var mIsReady : Boolean = false;
+			private var mNick : String = "";
+			private var mSexo : String = "";
+			private var mChicoButton : SimpleButton;
+			private var mChicoButtonUpState : DisplayObject;
+			private var mChicaButton : SimpleButton;
+			private var mChicaButtonUpState : DisplayObject;
+			private var mGameStatus : GameStatus;
+			
+			private var mLogin : MovieClip;
+		]]>
+	</mx:Script>
+	
+</mx:Canvas>

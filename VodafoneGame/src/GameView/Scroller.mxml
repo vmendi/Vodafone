@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="655" height="116" backgroundColor="0xaaaaaa"
+	verticalScrollPolicy="off" horizontalScrollPolicy="off"
+	backgroundAlpha="0"
+	>
+	 
+	<mx:HBox id="myHBox" x="0" y="0" width="655" height="100%" horizontalGap="13" 
+			horizontalScrollPolicy="auto" verticalScrollPolicy="off" verticalCenter="14"
+			paddingLeft="20"
+			paddingRight="20"
+			>
+	</mx:HBox>
+	
+	<mx:Script>
+		<![CDATA[
+			import Controller.ShowProductsEvent;
+			import Controller.GameController;
+			import mx.controls.Alert;
+			import mx.managers.DragManager;
+			import mx.charts.chartClasses.DualStyleObject;
+			import mx.effects.easing.Back;
+			import mx.controls.HScrollBar;
+			import mx.events.ScrollEvent;
+			import mx.core.UIComponent;
+			
+			
+			public function CreateGUI():void
+			{
+				systemManager.addEventListener(MouseEvent.MOUSE_MOVE, OnMouseMove, false, 0, true);
+				systemManager.addEventListener(MouseEvent.MOUSE_UP, OnMouseUp, false, 0, true);
+				systemManager.addEventListener(Event.ENTER_FRAME, OnEnterFrame, false, 0, true);
+			
+				/*	
+				var daFondo : MovieClip = new (getDefinitionByName("mcSombraProductos") as Class);
+				daFondo.width = width;
+				var uiComp : UIComponent = new UIComponent();
+				uiComp.addChild(daFondo);
+				addChild(uiComp);
+				
+				daFondo.mouseEnabled = false;
+				uiComp.mouseEnabled = false;
+				*/	
+			}
+						
+			public function SetGameController(gc : GameController):void
+			{
+				gc.TheCharacter.addEventListener("ProductDisabled", OnProductDisabled, false, 0, true);			
+				gc.TheCharacter.addEventListener("ShowProductsEvent", OnShowProductsEvent, false, 0, true);
+			}
+				
+			private function OnShowProductsEvent(event:ShowProductsEvent):void
+			{	
+				var productNames : Array = event.ProductNames;
+				myHBox.removeAllChildren();
+				mEnabledProducts = new Array();
+				mDragging = null;
+				mReturning = null;
+									
+				for (var c:int = 0; c < productNames.length; c++)
+					AddProduct(new (getDefinitionByName("mcProducto"+productNames[c]) as Class));
+			}
+			
+			private function HideNow() : void
+			{
+				myHBox.removeAllChildren();
+				mEnabledProducts = new Array();
+				mDragging = null;
+				mReturning = null;
+			}
+			
+			private function AddProduct(mc : MovieClip):void
+			{
+				var uiComp : UIComponent = new UIComponent();
+				uiComp.addChild(mc);
+				uiComp.width=mc.width;
+				uiComp.height=mc.height;
+				myHBox.addChild(uiComp);
+				
+				if (mc.Nombre != null)
+					mc.Nombre.visible = false;
+				else
+					Alert.show("El MovieClip del producto : " + mc.toString() + " no tiene el campo \"Nombre\"");
+				
+				mEnabledProducts.push(mc);
+				
+				mc.useHandCursor = true;
+				mc.buttonMode = true;
+				
+				mc.addEventListener(MouseEvent.MOUSE_DOWN, OnProductMouseDown, false, 0, true);
+			}
+			
+			private function OnProductMouseDown(event:MouseEvent):void
+			{
+				if (mDragging != null || mReturning != null)
+					return;
+					
+				var mcProduct : MovieClip = event.currentTarget as MovieClip;
+				
+				// Tiene que estar disponible
+				if (mEnabledProducts.indexOf(mcProduct) == -1)
+					return;
+				
+				var mcProductClass : Class = Object(mcProduct).constructor;
+				mDragging = new mcProductClass();
+				if (mDragging.Nombre != null)
+					mDragging.Nombre.visible = false;
+					
+				var globalOrigin : Point = mcProduct.localToGlobal(new Point(0,0));
+								
+				mDeltaDrag = new Point(event.stageX-globalOrigin.x, event.stageY-globalOrigin.y);	
+				systemManager.addChild(mDragging);
+				
+				mDragging.x = event.stageX - mDeltaDrag.x;
+				mDragging.y = event.stageY - mDeltaDrag.y;
+				
+				mReturnPoint = new Point(mDragging.x, mDragging.y);
+										
+				mDragging.alpha = 0.3;
+			}
+			
+			
+			private function OnMouseMove(event:MouseEvent):void
+			{
+				if (mDragging != null)
+				{
+					mDragging.x = event.stageX - mDeltaDrag.x;
+					mDragging.y = event.stageY - mDeltaDrag.y;
+					
+					if (IsInZone())
+						mDragging.alpha = 0.8;
+					else
+						mDragging.alpha = 0.3;
+				}	
+			}
+			
+			private function OnMouseUp(event:MouseEvent):void
+			{
+				if (mDragging != null)
+				{
+					if (IsInZone())
+					{					
+						var daProductDropped : TextEvent = new TextEvent("ProductDropped");
+						var nombreProducto : TextField = mDragging.getChildByName("Nombre") as TextField;
+						daProductDropped.text = nombreProducto.text;
+						dispatchEvent(daProductDropped);
+						systemManager.removeChild(mDragging);
+						
+						HideNow();
+					}
+					else
+					{
+						mReturnSpeed = new Point();
+						mReturnSpeed = mReturnPoint.subtract(new Point(mDragging.x, mDragging.y));
+						mReturnSpeed.normalize(1.0);
+						mReturnSpeed.x *= 30;
+						mReturnSpeed.y *= 30;
+						mReturning = mDragging;
+					}
+					mDragging = null;
+				}
+			}
+			
+			private function IsInZone() : Boolean
+			{
+				var bRet : Boolean = false;
+				if (mDragging != null)
+				{
+					if (mDragging.x > 300 && mDragging.y < 700 &&
+						mDragging.y > 0 && mDragging.y < 500)
+						bRet = true;
+				}				
+				return bRet;
+			}
+			
+			private function OnEnterFrame(event:Event):void
+			{
+				if (mReturning != null)
+				{
+					mReturning.x += mReturnSpeed.x;
+					mReturning.y += mReturnSpeed.y;
+					
+					var currCoord:Point = new Point(mReturning.x, mReturning.y);
+					
+					if (mReturnPoint.subtract(currCoord).length < 35)
+					{
+						systemManager.removeChild(mReturning);
+						mReturning = null;
+					}
+				}
+			}
+			
+			private function OnProductDisabled(event:TextEvent):void
+			{
+				var productName : String = event.text;
+				
+				for (var c:int = 0; c < mEnabledProducts.length; c++)
+				{
+					var nameField : TextField = mEnabledProducts[c].Nombre as TextField;
+					
+					if (nameField != null && nameField.text == productName)
+					{
+						mEnabledProducts[c].alpha = 0.3;
+						mEnabledProducts.splice(c, 1);
+						break;	
+					}					
+				}
+					
+			}
+			
+			private var mEnabledProducts : Array = new Array();
+			private var mDeltaDrag : Point;
+			private var mReturnPoint : Point;
+			private var mReturnSpeed : Point;
+			private var mDragging : MovieClip;
+			private var mReturning : MovieClip;
+		]]>
+	</mx:Script>
+		
+</mx:Canvas>

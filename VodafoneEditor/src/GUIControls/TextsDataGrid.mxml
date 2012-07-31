@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommonDataGrid xmlns="GUIControls.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+	dragEnabled="true"
+	dragMoveEnabled="false" 
+	draggableColumns="false"
+	>
+	<columns>
+		<mx:DataGridColumn headerText="ID" dataField="ID" width="80"/>
+		<mx:DataGridColumn headerText="Texto" dataField="Text"/>
+	</columns>
+	
+	
+	<mx:Script>
+		<![CDATA[			
+			protected override function CreateMenuItems() : void
+	        {
+	        	var cmi:ContextMenuItem = new ContextMenuItem("Crear texto...", false, true, true);
+	            mContextMenu.customItems.push(cmi);
+	            
+	            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, CrearSelected);
+	            
+	            cmi = new ContextMenuItem("Borrar texto", false, true, true);
+	            mContextMenu.customItems.push(cmi);
+	            
+	            cmi.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, BorrarSelected);
+	        }
+	        
+	        private function CrearSelected(event:ContextMenuEvent) : void
+	        {
+	        	var currNum : int = mLevelModel.Texts.length;
+	        	var newText : Object = mLevelModel.AddText("Texto " + currNum);
+	        	newText.Text = "Default Text " + currNum.toString();
+	        }
+	        
+	        private function BorrarSelected(event:ContextMenuEvent) : void
+	        {
+	        	if (selectedItem != null)
+	        	{
+	        		mLevelModel.RemoveText(selectedItem);
+	        	}
+	        }
+		]]>
+	</mx:Script>
+</CommonDataGrid>

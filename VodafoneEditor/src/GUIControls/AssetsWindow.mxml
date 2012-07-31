@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Window xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="230" height="350"
+	windowComplete="OnWindowComplete();"
+	windowMove="OnMove();"
+	horizontalScrollPolicy="off"
+	verticalScrollPolicy="off"
+	title="Asset Browser"
+	creationComplete="OnCreationComplete();"
+	windowActivate="OnWindowActivate();"
+	>
+	<mx:Script>
+		<![CDATA[
+			import mx.core.IWindow;
+			import mx.core.Application;
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.controls.SWFLoader;
+			
+			import EditorUtils.*;
+			import Model.LevelModel;
+		    	        
+        	public function set LevelModel(val : LevelModel):void 
+        	{ 
+        		mLevelModel = val;
+        		mLevelModel.addEventListener("AssetPathChanged", OnAssetPathChanged);
+        	}
+ 
+        	private function OnWindowComplete() : void
+	        {
+	        	EditorUtils.WindowUtils.OnShow("AssetsWindow", nativeWindow);	
+	        }
+	        
+	        private function OnMove() : void
+	        {
+	     		EditorUtils.WindowUtils.OnMove("AssetsWindow", nativeWindow);
+	        }
+				
+			private function OnCreationComplete():void
+			{
+				RefreshFiles();
+			}
+			
+	        private function OnWindowActivate() : void
+	        {
+	        	Application.application.BringAllToFront();
+	        	orderInFrontOf(Application.application as IWindow);
+    	    }
+
+			private function OnAssetPathChanged(event:Event):void
+			{
+				RefreshFiles();
+			}
+			
+			private function RefreshFiles():void
+			{
+				try { 
+					var dir : File = EditorUtils.FileUtils.GetAbsolutePath(mLevelModel.AssetPath);
+					dir.createDirectory();
+							
+					dir.addEventListener(FileListEvent.DIRECTORY_LISTING, dirListHandler);
+					dir.getDirectoryListingAsync();
+						
+					mFileList = new ArrayCollection();
+				}
+				catch (e : ArgumentError)
+				{
+				}
+				
+				function dirListHandler(event:FileListEvent):void
+				{
+				    var contents:Array = event.files;
+				    for (var i:uint = 0; i < contents.length; i++) 
+				    {
+				    	if (contents[i].extension == "swf")
+				    		mFileList.addItem( { File:contents[i], FileName:contents[i].name, URL:contents[i].url, Size:contents[i].size } );
+				    }
+				}
+			}
+			
+			private function OnMovieClipSelected(event:Event):void
+			{
+				var item : Object = myFileList.selectedItem;
+				
+				var myLoader:SWFLoader = new SWFLoader();
+				myLoader.addEventListener("complete", loaded);
+				myLoader.addEventListener("ioError", IOError);
+				myLoader.load(item.URL);
+				
+				function loaded(event:Event):void
+				{
+					if (mPreviewWindow == null)
+					{
+						mPreviewWindow = new PreviewWindow();
+						mPreviewWindow.addEventListener(Event.CLOSE, OnPreviewWindowClose);
+						mPreviewWindow.open(false);
+					}
+
+					mPreviewWindow.removeAllChildren();
+					mPreviewWindow.addChild(myLoader);
+					/*
+					mPreviewWindow.width = myLoader.content.width;
+					mPreviewWindow.height = myLoader.content.height;
+					*/
+				}
+								
+				function IOError(event:IOErrorEvent):void
+				{
+					Alert.show('Error cargando ' + item.URL + " " + event.text, 'IO Error', mx.controls.Alert.OK);
+				}
+			}
+			
+			private function OnPreviewWindowClose(event:Event):void
+			{
+				mPreviewWindow.removeEventListener(Event.CLOSE, OnPreviewWindowClose);
+				mPreviewWindow = null;
+			}
+			
+			[Bindable]
+			private var mFileList : ArrayCollection = new ArrayCollection();
+			private var mLevelModel : LevelModel;
+			private var mPreviewWindow : PreviewWindow;
+			
+		]]>
+	</mx:Script>
+	<mx:DataGrid id="myFileList" dataProvider="{mFileList}" 
+			dragEnabled="true"
+			dragMoveEnabled="false" 
+			draggableColumns="false"
+			change="OnMovieClipSelected(event);"
+			right="0" left="0" top="0" bottom="0"
+			>
+			<mx:columns>
+				<mx:DataGridColumn headerText="Archivo" dataField="FileName"/>
+			</mx:columns>
+	</mx:DataGrid>
+		
+</mx:Window>

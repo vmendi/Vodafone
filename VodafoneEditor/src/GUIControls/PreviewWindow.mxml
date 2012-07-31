@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Window xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="400" height="500"
+		horizontalScrollPolicy="off"
+		verticalScrollPolicy="off"
+		windowComplete="OnShow()"
+		windowMove="OnMove()"
+		creationComplete="OnCreationComplete()"
+		windowActivate="OnWindowActivate()"
+		title="Preview">
+		
+		<mx:Script>
+			<![CDATA[
+				
+				import mx.core.IWindow;
+				import mx.core.Application;
+				import EditorUtils.*;
+			
+				private function OnShow() : void
+		        {
+		        	this.visible = true;		        	
+		        }
+		        
+		        private function OnMove() : void
+		        {
+		     		EditorUtils.WindowUtils.OnMove("PreviewWindow", nativeWindow);
+		        }
+		        
+		        private function OnCreationComplete() : void
+		        {
+		        	this.visible = false;
+		        	EditorUtils.WindowUtils.OnShow("PreviewWindow", nativeWindow);
+		        }
+		        	    	    
+	    	    private function OnWindowActivate() : void
+		        {
+		        	Application.application.BringAllToFront();
+		        	orderInFrontOf(Application.application as IWindow);
+	    	    }
+			]]>
+		</mx:Script>
+</mx:Window>

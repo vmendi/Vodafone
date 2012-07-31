@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:MenuBar xmlns:mx="http://www.adobe.com/2006/mxml" dataProvider="{TopMenuBarData}" labelField="@label" showRoot="true" creationComplete="OnCreationComplete();" >
+
+<mx:XML id="TopMenuBarData" xmlns="">
+	<menuitem label="Archivo">
+	    <menuitem label="Abrir nivel..." command="OpenProject"/>
+	    <menuitem label="Grabar nivel" command="SaveProject"/>
+	    <menuitem label="Grabar nivel como..." command="SaveAsProject"/>
+	    <menuitem type="separator"/>    
+	    <menuitem label="Directorio de recursos..." command="SetAssetsPath"/>
+	    <menuitem type="separator"/>
+	</menuitem>
+</mx:XML>
+
+<mx:Script>
+	<![CDATA[
+		import EditorUtils.FileUtils;
+		import flash.filesystem.File;
+		import flash.events.Event;
+		import mx.events.MenuEvent;
+		
+		import EditorUtils.SaveLevelModel;
+		import Model.LevelModel;
+				
+		    	        
+        public function set LevelModel(val : LevelModel):void { mLevelModel = val; }
+        
+        		
+		private function OnCreationComplete():void
+		{
+			addEventListener(MenuEvent.ITEM_CLICK, OnMainMenuBarItemClick);
+		}
+		
+		private function OnMainMenuBarItemClick(event:MenuEvent):void
+        {
+        	if (event.item.@command == "OpenProject")
+        	{
+				OpenProject();			
+        	}
+        	else
+        	if (event.item.@command == "SaveProject")
+        	{
+        		SaveProject();
+        	}
+        	else
+        	if (event.item.@command == "SaveAsProject")
+        	{
+        		SaveAsProject();
+        	}
+        	else
+        	if (event.item.@command == "SetAssetsPath")
+        	{
+        		SetAssetsPath();
+        	}
+        }
+        
+        private function SetAssetsPath():void
+        {
+        	var directory:File = EditorUtils.FileUtils.GetApplicationDirAbsolute();
+			try
+			{
+			    directory.browseForDirectory("Selección de directorio de recursos");
+			    directory.addEventListener(Event.SELECT, dirSelected);
+			}
+			catch (error:Error)
+			{
+			    trace("Failed:", error.message)
+			}
+			
+			function dirSelected(event:Event):void 
+			{
+				var daFile : File = event.target as File;
+				
+			    mLevelModel.AssetPath = EditorUtils.FileUtils.GetPathRelativeToWorkSpace(daFile);
+			}
+        }
+        
+        private function OpenProject():void
+        {
+        	var directory:File = File.applicationDirectory;
+			try
+			{
+			    directory.browseForOpen("Selección de nivel...");
+			    directory.addEventListener(Event.SELECT, openFileSelected);
+			}
+			catch (error:Error)
+			{
+			    trace("Failed:", error.message)
+			}
+			
+			function openFileSelected(event:Event):void 
+			{
+				var daFile : File = event.target as File;
+				
+			    mLevelModel.LoadLevel(EditorUtils.FileUtils.GetPathRelativeToWorkSpace(daFile));
+			}
+        }
+        
+        private function SaveProject():void
+        {        	
+        	if (mLevelModel.CurrentLevel == "Nuevo")
+        	{
+        		var directory:File = EditorUtils.FileUtils.GetApplicationDirAbsolute();
+				try
+				{
+				    directory.browseForSave("Selección de nivel...");
+				    directory.addEventListener(Event.SELECT, SaveFileSelected);
+				}
+				catch (error:Error)
+				{
+				    trace("Failed:", error.message)
+				}
+        	}
+        	else
+        	{
+        		EditorUtils.SaveLevelModel.SaveToDisk(EditorUtils.FileUtils.GetAbsolutePath(mLevelModel.CurrentLevel).url, mLevelModel);
+        	}
+        }
+        
+        private function SaveFileSelected(event:Event):void
+        {
+        	var daFile : File = event.target as File;
+			daFile = new File(daFile.nativePath + ".xml");
+			
+			EditorUtils.SaveLevelModel.SaveToDisk(daFile.url, mLevelModel);
+			mLevelModel.CurrentLevel = EditorUtils.FileUtils.GetPathRelativeToWorkSpace(daFile);
+        }
+        
+        private function SaveAsProject() : void
+        {
+        	var directory:File = EditorUtils.FileUtils.GetApplicationDirAbsolute();
+			try
+			{
+			    directory.browseForSave("Selección de nivel...");
+			    directory.addEventListener(Event.SELECT, SaveFileSelected);
+			}
+			catch (error:Error)
+			{
+			    trace("Failed:", error.message)
+			}
+        }
+        
+        
+        protected var mLevelModel : LevelModel;
+	]]>
+</mx:Script>
+	
+</mx:MenuBar>
+
+
